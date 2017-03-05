@@ -1,0 +1,9 @@
+{
+  "name": "koe",
+  "version": "0.0.1",
+  "description": "small site generator",
+  "main": "index.js",
+  "repository": "git@github.com:pnn/koe.git",
+  "author": "penny <penny@penny.lgbt>",
+  "license": "MIT"
+}

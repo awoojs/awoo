@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:pnn/koe.git",
   "author": "penny <penny@penny.lgbt>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ware": "^1.3.0"
+  }
 }

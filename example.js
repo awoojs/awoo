@@ -1,14 +1,15 @@
-const koe = require('koe')
+const koe = require('./lib/koe')
 
 const config = {
-  root: '.'
+  title: 'this is a cool title'
 }
 
 async function run () {
-  const site = await koe(config)
-  return site.build()
+  const output = await koe(config)
+  output.use(site => site.title = 'haha! i hereby overwrite your title')
+  return output.build()
 }
 
 run().then(post => {
-  console.log(`compiled in ${post.time} seconds!`)
+  console.log(post)
 })

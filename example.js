@@ -1,15 +1,17 @@
 const koe = require('./lib/koe')
 
 const config = {
-  title: 'this is a cool title'
+  exclude: ['aaa']
 }
 
-async function run () {
-  const output = await koe(config)
-  output.use(site => site.title = 'haha! i hereby overwrite your title')
+function middleware (site) {
+  console.log(site)
+}
+
+function run () {
+  const output = koe(config)
+  output.use(middleware)
   return output.build()
 }
 
-run().then(post => {
-  console.log(post)
-})
+run()

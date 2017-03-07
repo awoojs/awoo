@@ -6,7 +6,11 @@
   "repository": "git@github.com:pnn/koe.git",
   "author": "penny <penny@penny.lgbt>",
   "license": "MIT",
+  "scripts": {
+    "test:example": "node example"
+  },
   "dependencies": {
+    "lodash.merge": "^4.6.0",
     "ware": "^1.3.0"
   }
 }

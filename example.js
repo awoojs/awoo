@@ -6,12 +6,15 @@ const config = {
 
 function middleware (site) {
   console.log(site)
+  site.test = 'a'
 }
 
-function run () {
-  const output = koe(config)
-  output.use(middleware)
-  return output.build()
+async function run () {
+  const site = await koe().configure(config)
+  site.use(middleware)
+  return site.build()
 }
 
-run()
+run().then(res => {
+  console.log(res.test)
+})

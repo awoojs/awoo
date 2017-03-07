@@ -5,7 +5,6 @@ const config = {
 }
 
 function middleware (site) {
-  console.log(site)
   site.test = 'a'
 }
 

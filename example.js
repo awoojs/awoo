@@ -16,10 +16,19 @@ function middleware (site) {
   site.foo = 'bar'
 }
 
+// you can also hook into specific parts of the build process
+function preconfigHook (site) {
+  site.config.destination = path.join(__dirname, 'dest2')
+}
+
 // the main execution thread. should return a promise
 async function run () {
   const site = koe(config)
   site.use(middleware)
+
+  // use the pre_config hook
+  site.hook('pre_config', preconfigHook)
+
   return site.build()
 }
 
@@ -28,4 +37,5 @@ run().then(res => {
   console.log(res)
 }).catch(err => {
   // optionally, log errors
+  throw new Error(err)
 })

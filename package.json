@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "standard | snazzy",
+    "test": "ava",
     "test:example": "node example"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
     "ware": "^1.3.0"
   },
   "devDependencies": {
+    "ava": "^0.18.2",
     "snazzy": "^6.0.0",
     "standard": "^9.0.0"
   }

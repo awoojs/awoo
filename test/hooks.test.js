@@ -2,10 +2,13 @@ import test from 'ava'
 import ware from 'ware'
 import Hooks from '../lib/hooks'
 
-test('hooks register properly', async t => {
+test('hooks are initialized with a ware instance', async t => {
   const hooks = new Hooks()
   t.true(hooks.registry.pre_run instanceof ware)
+})
 
+test('hooks register properly', async t => {
+  const hooks = new Hooks()
   hooks.register('pre_run', () => {})
   t.is(hooks.registry.pre_run.fns.length, 1)
 })

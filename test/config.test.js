@@ -2,7 +2,7 @@ import test from 'ava'
 import deepmerge from 'deepmerge'
 import config from '../lib/config'
 
-test.only('config is merged correctly', async t => {
+test('config is merged correctly', async t => {
   const conf1 = config.generateConfig()
   t.deepEqual(conf1, config.DEFAULT_CONFIG)
 

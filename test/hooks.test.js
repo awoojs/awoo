@@ -4,20 +4,20 @@ import Hooks from '../lib/hooks'
 
 test('hooks are initialized with a ware instance', async t => {
   const hooks = new Hooks()
-  t.true(hooks.registry.pre_run instanceof ware)
+  t.true(hooks.registry.pre_write instanceof ware)
 })
 
 test('hooks register properly', async t => {
   const hooks = new Hooks()
-  hooks.register('pre_run', () => {})
-  t.is(hooks.registry.pre_run.fns.length, 1)
+  hooks.register('pre_write', () => {})
+  t.is(hooks.registry.pre_write.fns.length, 1)
 })
 
 test('hooks execute correctly', async t => {
   const hooks = new Hooks()
-  hooks.register('pre_run', obj => {
+  hooks.register('pre_write', obj => {
     obj.a = 'test'
   })
-  const res = await hooks.run('pre_run', {})
+  const res = await hooks.run('pre_write', {})
   t.is(res.a, 'test')
 })

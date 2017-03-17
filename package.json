@@ -9,6 +9,7 @@
   "scripts": {
     "lint": "standard | snazzy",
     "test": "ava",
+    "test:watch": "ava -w",
     "test:example": "node example"
   },
   "ava": {

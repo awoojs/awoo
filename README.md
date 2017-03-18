@@ -104,6 +104,10 @@ files, do something to them, and then output those files. That's it. The rest is
 bunch of building blocks with which you can make your ideal site, using only
 the stuff you need!
 
+## API Documentation
+
+See [API.md](https://github.com/koe/koe/blob/master/API.md).
+
 ## How does it compare?
 
 This section is a little bit about how `koe` compares to other static site

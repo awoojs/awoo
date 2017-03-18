@@ -46,7 +46,7 @@ directory to "hey, what's up":
 ```js
 const koe = require('koe')
 
-// define the source directory
+// specify the source directory
 const config = {
   source: 'example_dir'
 }

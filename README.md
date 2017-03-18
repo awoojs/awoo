@@ -122,6 +122,12 @@ generators (even though it isn't really that):
   Also, it's just not really an active project with an active ecosystem
   anymore (sadly!).
 
+## What does the name mean?
+
+Koe, or, in its german spelling, Kö (= Königsallee), is one of the busiest
+luxury shopping streets in Germany, located in the city of Düsseldorf
+(which is where I live what a surprise haha). Also, it was free on npm.
+
 ## What dependencies does it have?
 
 - [`deepmerge`](http://npm.im/deepmerge) - used to merge the user-defined

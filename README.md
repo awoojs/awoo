@@ -37,6 +37,8 @@
 - __extremely simple__: the API exposes 3 functions!
 - __very modern__: works very well with async functions (node 7.6+)
 - __extendable as h*ck__: provides hooking mechanisms to serve your every need
+- __fun__: by which I mean to say, Promises are fun. async functions are fun.
+  funnnnnn
 
 ## Example
 
@@ -121,6 +123,7 @@ generators (even though it isn't really that):
   up-to-date (I like promises a lot) and that the API is fairly different.
   Also, it's just not really an active project with an active ecosystem
   anymore (sadly!).
+- __koa__: `koe` is NOT koa please stop sending me e-mails about this
 
 ## What does the name mean?
 

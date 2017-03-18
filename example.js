@@ -13,7 +13,7 @@ const config = {
 
 // define a sample middleware
 function middleware (site) {
-  site.files[path.join(__dirname, 'test/sample/test.md')].contents = 'sup'
+  site.files[path.join(__dirname, 'test/sample/test.md')].contents = 'hey test'
 }
 
 // the main execution thread. should return a promise

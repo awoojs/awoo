@@ -4,7 +4,7 @@
   a general, lightweight framework for parsing loads of files
 </div>
 <div align="center">
-  _by extension, a static site generator_
+  <i>by extension, a static site generator</i>
 </div>
 
 <br />

@@ -12,6 +12,19 @@ Registers a piece of middleware in the `pre_write` hook (the one you'd want to
 put most middleware into). More info on hook middleware can be found
 [here](#middleware).
 
+### site.hook(name, hook)
+
+Registers a custom hook. This works exactly the same as `site.use`
+(`site.use` actually uses `site.hook` internally), but allows you to hook into
+any part of the build process. `name` can be any of the following:
+
+```
+pre_read
+post_read
+pre_write (aliased to site.use)
+post_write
+```
+
 ### site.build() -> Promise
 
 Runs through the build process, calling all hooks. Returns a promise with the

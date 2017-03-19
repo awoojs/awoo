@@ -1,6 +1,6 @@
 {
   "name": "koe",
-  "version": "1.0.0-1",
+  "version": "1.0.0",
   "description": "small site generator",
   "main": "index.js",
   "repository": "git@github.com:koe/koe.git",

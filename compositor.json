@@ -44,10 +44,6 @@
       "component": "nav",
       "links": [
         {
-          "href": "http://npm.im/koe",
-          "text": "Home"
-        },
-        {
           "href": "https://github.com/koe/koe",
           "text": "GitHub"
         },

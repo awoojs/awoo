@@ -1,0 +1,99 @@
+{
+  "name": "koe/koe",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "koe",
+  "branch": "",
+  "style": {
+    "name": "Brutalist",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BasicHeader",
+      "article": "article/MarkdownArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "Consolas, \"Liberation Mono\", Menlo, Courier, monospace",
+    "heading": {},
+    "typeScale": [
+      48,
+      32,
+      20,
+      18,
+      16,
+      14,
+      12
+    ],
+    "layout": {
+      "maxWidth": 1024,
+      "fluid": true
+    },
+    "colors": {
+      "text": "#333",
+      "background": "#fff",
+      "primary": "#666",
+      "secondary": "#888",
+      "highlight": "#1f80ff",
+      "muted": "#f6f6f6",
+      "border": "#eee"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "http://npm.im/koe",
+          "text": "Home"
+        },
+        {
+          "href": "https://github.com/koe/koe",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/koe",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "koe",
+      "subhead": ":purse: general purpose file parsing framework",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "koe: :purse: general purpose file parsing framework",
+          "url": "http://npm.im/koe"
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "koe",
+          "repo": "koe"
+        }
+      ],
+      "text": "v1.0.0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n\n<div>\n  a general, lightweight framework for parsing loads of files\n</div>\n<div>\n  <i>by extension, a static site generator</i>\n</div>\n\n<p><br></p>\n<div>\n  \n  <a href=\"https://nodejs.org/api/documentation.html#documentation_stability_index\">\n    <img src=\"https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square\">\n</a>\n  \n  <a href=\"https://travis-ci.org/koe/koe\">\n    <img src=\"https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square\">\n  </a>\n  \n  <a href=\"https://npmjs.org/package/koe\">\n    <img src=\"https://img.shields.io/npm/v/koe.svg?style=flat-square\">\n  </a>\n  \n  <a href=\"https://github.com/feross/standard\">\n    <img src=\"https://img.shields.io/badge/code%20style-standard-blue.svg?style=flat-square\">\n  </a>\n</div>\n\n<h2>Features</h2>\n<ul>\n<li><strong>extremely simple</strong>: the API exposes 3 functions!</li>\n<li><strong>easy to understand</strong>: only ~150 SLOC!</li>\n<li><strong>very modern</strong>: works very well with async functions (node 7.6+)</li>\n<li><strong>extendable as h*ck</strong>: provides hooking mechanisms to serve your every need</li>\n<li><strong>fun</strong>: by which I mean to say, Promises are fun. async functions are fun.\nfunnnnnn</li>\n</ul>\n<h2>Example</h2>\n<p>Let&apos;s write a simple program that changes the content of all files in a\ndirectory to &quot;hey, what&apos;s up&quot;:</p>\n<pre><span class=\"hljs-keyword\">const</span> koe = <span class=\"hljs-built_in\">require</span>(<span class=\"hljs-string\">&apos;koe&apos;</span>)\n\n<span class=\"hljs-comment\">// specify the source directory</span>\n<span class=\"hljs-keyword\">const</span> config = {\n  <span class=\"hljs-attr\">source</span>: <span class=\"hljs-string\">&apos;example_dir&apos;</span>\n}\n\n<span class=\"hljs-comment\">// the middleware that&apos;s going to run</span>\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">middleware</span> (<span class=\"hljs-params\">site</span>) </span>{\n  <span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> file <span class=\"hljs-keyword\">in</span> site.files) {\n    site.files[file].contents = Buffer.from(<span class=\"hljs-string\">&apos;hey, what\\&apos;s up&apos;</span>)\n  }\n}\n\n<span class=\"hljs-comment\">// our main execution function</span>\n<span class=\"hljs-keyword\">async</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">main</span> (<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">const</span> site = koe(config)\n  site.use(middleware)\n\n  <span class=\"hljs-keyword\">return</span> site.build()\n}\n\nmain().then(<span class=\"hljs-function\"><span class=\"hljs-params\">final_site</span> =&gt;</span> {\n  <span class=\"hljs-comment\">// do some more stuff, maybe?</span>\n}).catch(<span class=\"hljs-function\"><span class=\"hljs-params\">err</span> =&gt;</span> {\n  <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Error</span>(err)\n})</pre><p>Let&apos;s save this as <code>example.js</code>. To run it, you need Node.js version 7.6 or\nhigher. The latest stable version will work.</p>\n<pre>node example.js</pre><h2>How does it work?</h2>\n<p>It&apos;s fairly simple! What <code>koe</code> does can be split up into two things:</p>\n<ul>\n<li>First, it reads a directory and saves all of the information about each file\ninto a gigantic object. That object can be manipulated by <em>middleware</em>, which\nmakes <code>koe</code> actually do things.</li>\n<li>After most middleware is run, <code>koe</code> writes the files as they are described\nin the gigantic object to disk.</li>\n</ul>\n<p>It&apos;s that simple! Static site generators aren&apos;t rocket science or whatever.\nIf you got confused by looking at the Jekyll source code once, that&apos;s because\nJekyll is more fully fledged than <code>koe</code> is, that is, it provides some defaults.</p>\n<p>But static site generators, at their core, are just programs that take a set of\nfiles, do something to them, and then output those files. That&apos;s it. The rest is just <em>transformations</em> on those files.</p>\n<p><code>koe</code>&apos;s goal is to reduce that essence to its very base, and to give you a\nbunch of building blocks with which you can make your ideal site, using only\nthe stuff you need!</p>\n<h2>API Documentation</h2>\n<p>See <a href=\"https://github.com/koe/koe/blob/master/API.md\">API.md</a>.</p>\n<h2>How does it compare?</h2>\n<p>This section is a little bit about how <code>koe</code> compares to other static site\ngenerators (even though it isn&apos;t really that):</p>\n<ul>\n<li><strong>jekyll</strong>: Jekyll is a whole lot different. First off, it provides a whole\nlot of defaults (such as YAML Front-Matter, the Liquid language, etc) to\nhelp you build your static site extremely quickly. It&apos;s also massively\ngeared for security, since it runs on GitHub&apos;s Pages platform. Stuff like\ncustom plugins isn&apos;t even available there (not like that&apos;s a bad thing!).</li>\n<li><strong>ghost</strong>: Ghost is just straight up a blogging platform. I don&apos;t even know\nwhy it&apos;s on AlternativeTo.</li>\n<li><strong>hugo</strong>: Hugo, a bit like Jekyll, has predefined concepts like &quot;pages&quot; and\n&quot;tags&quot;. It&apos;s also way more stable and faster than <code>koe</code>. Why am I still writing this?</li>\n<li><strong>metalsmith</strong>: Metalsmith is probably the thing that&apos;s most like <code>koe</code>, and\nas a matter of fact, its main inspiration. It&apos;s also plugin-based, and works\nwith roughly the same concepts. The major difference is that <code>koe</code> is more\nup-to-date (I like promises a lot) and that the API is fairly different.\nAlso, it&apos;s just not really an active project with an active ecosystem\nanymore (sadly!).</li>\n<li><strong>koa</strong>: <code>koe</code> is NOT koa please stop sending me e-mails about this</li>\n</ul>\n<h2>What does the name mean?</h2>\n<p>Koe, or, in its german spelling, K&#xF6; (= K&#xF6;nigsallee), is one of the busiest\nluxury shopping streets in Germany, located in the city of D&#xFC;sseldorf\n(which is where I live what a surprise haha). Also, it was free on npm.</p>\n<h2>What dependencies does it have?</h2>\n<ul>\n<li><a href=\"http://npm.im/deepmerge\"><code>deepmerge</code></a> - used to merge the user-defined\nconfig into the predefined config object</li>\n<li><a href=\"http://npm.im/walk\"><code>walk</code></a> - walks through directories</li>\n<li><a href=\"http://npm.im/ware\"><code>ware</code></a> - handles middleware chains</li>\n<li><a href=\"http://npm.im/write-file-promise\"><code>write-file-promise</code></a> and\n<a href=\"http://npm.im/fs-readfile-promise\"><code>fs-readfile-promise</code></a> - promise-based\nversions of the standard <code>fs</code> methods</li>\n</ul>\n<p>If you have any ideas as to how to eliminate a dependency, you&apos;re more than\nwelcome to pitch it here!</p>\n<h2>License</h2>\n<p>MIT (see LICENSE document)</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/koe/koe",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/koe",
+          "text": "koe"
+        }
+      ]
+    }
+  ]
+}

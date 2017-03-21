@@ -83,6 +83,18 @@ higher. The latest stable version will work.
 node example.js
 ```
 
+`koe` outputs logs in _JSON formatting_ by default. If you want nice and cute
+logs, I recommend using [pino-colada](http://npm.im/pino-colada):
+
+```sh
+yarn global add pino-colada
+# or
+npm i -g pino-colada
+
+# pipe the script output into pino-colada
+node example.js | pino-colada
+```
+
 ## How does it work?
 
 It's fairly simple! What `koe` does can be split up into two things:

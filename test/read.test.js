@@ -16,7 +16,7 @@ test('reads files correctly', async t => {
   const res = await read(args)
   const expectedPath = path.join(__dirname, 'sample/test.md')
 
-  t.true(res[expectedPath].path === 'test.md')
+  t.true(res['test.md'].path === expectedPath)
   t.true(args.logger.debug.callCount === 2)
 })
 

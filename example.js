@@ -18,7 +18,7 @@ function middleware (site) {
 
 // the main execution thread. should return a promise
 async function run () {
-  const site = koe(config)
+  const site = koe(config, { verbose: true })
   site.use(middleware)
 
   return site.build()
@@ -26,7 +26,7 @@ async function run () {
 
 // execute the build process and log results
 run().then(res => {
-  console.log(res)
+
 }).catch(err => {
   // optionally, log errors
   throw new Error(err)

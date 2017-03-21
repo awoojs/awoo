@@ -157,6 +157,7 @@ luxury shopping streets in Germany, located in the city of Düsseldorf
 - [`write-file-promise`](http://npm.im/write-file-promise) and
   [`fs-readfile-promise`](http://npm.im/fs-readfile-promise) - promise-based
   versions of the standard `fs` methods
+- [`pino`](http://npm.im/pino) - used for logging
 
 If you have any ideas as to how to eliminate a dependency, you're more than
 welcome to pitch it here!

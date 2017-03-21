@@ -1,10 +1,16 @@
 ## koe API
 
-### site = koe(config)
+### site = koe(config, opts)
 
 Initialize a new `koe` app. Takes a [config](#config) object that is going to be
 merged with the defaults. Don't worry, it'll still ignore `node_modules` even if
 you didn't specify it.
+
+`opts` is an object that takes the following keys:
+
+- `verbose` (Boolean, default false): whether to log debug operations
+  (file reads/writes, hooks)
+- `silent` (Boolean, default false): whether to log anything at all
 
 ### site.use(hook)
 

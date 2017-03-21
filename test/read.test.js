@@ -1,26 +1,41 @@
 import test from 'ava'
 import path from 'path'
+import { spy } from 'sinon'
 import read from '../lib/read'
 
 test('reads files correctly', async t => {
   const config = {
     source: 'test/sample'
   }
-  const res = await read(config)
+  const args = {
+    config,
+    logger: {
+      debug: spy()
+    }
+  }
+  const res = await read(args)
   const expectedPath = path.join(__dirname, 'sample/test.md')
 
   t.true(res[expectedPath].path === 'test.md')
+  t.true(args.logger.debug.callCount === 2)
 })
 
 test('throws on nonexistent path', async t => {
   const config = {
     source: 'test/fakepath'
   }
+  const args = {
+    config,
+    logger: {
+      debug: spy()
+    }
+  }
 
   try {
-    await read(config)
+    await read(args)
   } catch (err) {
     t.truthy(err[0])
     t.is(err[0].code, 'ENOENT')
+    t.true(args.logger.debug.callCount === 0)
   }
 })

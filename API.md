@@ -48,13 +48,13 @@ thing. It basically consists of this:
 
 ```js
 {
-  '/Users/username/myproject/file.md': {
-    path: 'file.md',
+  'file.md': {
+    path: '/Users/username/myproject/file.md',
     contents: <Buffer ...>,
     stats: [Object]
   },
-  '/Users/username/myproject/directory/another_file.js': {
-    path: 'directory/another_file.js',
+  'directory/another_file.js': {
+    path: '/Users/username/myproject/directory/another_file.js',
     contents: <Buffer ...>,
     stats: [Object]
   }

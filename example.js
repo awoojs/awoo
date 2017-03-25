@@ -13,7 +13,7 @@ const config = {
 
 // define a sample middleware
 function middleware (site) {
-  site.files[path.join(__dirname, 'test/sample/test.md')].contents = 'hey test'
+  site.files['test.md'].contents = 'hey test'
 }
 
 // the main execution thread. should return a promise
@@ -26,7 +26,7 @@ async function run () {
 
 // execute the build process and log results
 run().then(res => {
-
+  console.log(res.files)
 }).catch(err => {
   // optionally, log errors
   throw new Error(err)

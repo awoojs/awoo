@@ -41,6 +41,14 @@
 - __fun__: by which I mean to say, Promises are fun. async functions are fun.
   funnnnnn
 
+## Installation
+
+You need Node.js __7.6__ or higher.
+
+```sh
+npm install @koe/koe
+```
+
 ## Example
 
 Let's write a simple program that changes the content of all files in a

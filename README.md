@@ -47,7 +47,7 @@ Let's write a simple program that changes the content of all files in a
 directory to "hey, what's up":
 
 ```js
-const koe = require('koe')
+const koe = require('@koe/koe')
 
 // specify the source directory
 const config = {

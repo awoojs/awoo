@@ -17,7 +17,7 @@
 </a>
   <!-- travis ci -->
   <a href="https://travis-ci.org/koe/koe">
-    <img src="https://img.shields.io/travis/rust-lang/rust.svg?style=flat-square"
+    <img src="https://img.shields.io/travis/koe/koe.svg?style=flat-square"
       alt="test coverage" />
   </a>
   <!-- npm version -->

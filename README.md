@@ -1,4 +1,4 @@
-<h1 align="center">koe</h1>
+<h1 align="center">weh</h1>
 
 <div align="center">
   a general, lightweight framework for parsing loads of files
@@ -16,13 +16,13 @@
       alt="API stability" />
 </a>
   <!-- travis ci -->
-  <a href="https://travis-ci.org/koe/koe">
-    <img src="https://img.shields.io/travis/koe/koe.svg?style=flat-square"
+  <a href="https://travis-ci.org/wehjs/weh">
+    <img src="https://img.shields.io/travis/wehjs/weh.svg?style=flat-square"
       alt="test coverage" />
   </a>
   <!-- npm version -->
-  <a href="https://npmjs.org/package/koe">
-    <img src="https://img.shields.io/npm/v/koe.svg?style=flat-square"
+  <a href="https://npmjs.org/package/@weh/weh">
+    <img src="https://img.shields.io/npm/v/@weh/weh.svg?style=flat-square"
       alt="npm version" />
   </a>
   <!-- code style -->
@@ -46,7 +46,7 @@
 You need Node.js __7.6__ or higher.
 
 ```sh
-npm install @koe/koe
+npm install @weh/weh
 ```
 
 ## Example
@@ -55,7 +55,7 @@ Let's write a simple program that changes the content of all files in a
 directory to "hey, what's up":
 
 ```js
-const koe = require('@koe/koe')
+const weh = require('@weh/weh')
 
 // specify the source directory
 const config = {
@@ -71,7 +71,7 @@ function middleware (site) {
 
 // our main execution function
 async function main () {
-  const site = koe(config)
+  const site = weh(config)
   site.use(middleware)
 
   return site.build()
@@ -91,7 +91,7 @@ higher. The latest stable version will work.
 node example.js
 ```
 
-`koe` outputs logs in _JSON formatting_ by default. If you want nice and cute
+`weh` outputs logs in _JSON formatting_ by default. If you want nice and cute
 logs, I recommend using [pino-colada](http://npm.im/pino-colada):
 
 ```sh
@@ -105,32 +105,32 @@ node example.js | pino-colada
 
 ## How does it work?
 
-It's fairly simple! What `koe` does can be split up into two things:
+It's fairly simple! What `weh` does can be split up into two things:
 
 - First, it reads a directory and saves all of the information about each file
   into a gigantic object. That object can be manipulated by _middleware_, which
-  makes `koe` actually do things.
-- After most middleware is run, `koe` writes the files as they are described
+  makes `weh` actually do things.
+- After most middleware is run, `weh` writes the files as they are described
   in the gigantic object to disk.
 
 It's that simple! Static site generators aren't rocket science or whatever.
 If you got confused by looking at the Jekyll source code once, that's because
-Jekyll is more fully fledged than `koe` is, that is, it provides some defaults.
+Jekyll is more fully fledged than `weh` is, that is, it provides some defaults.
 
 But static site generators, at their core, are just programs that take a set of
 files, do something to them, and then output those files. That's it. The rest is just _transformations_ on those files.
 
-`koe`'s goal is to reduce that essence to its very base, and to give you a
+`weh`'s goal is to reduce that essence to its very base, and to give you a
 bunch of building blocks with which you can make your ideal site, using only
 the stuff you need!
 
 ## API Documentation
 
-See [API.md](https://github.com/koe/koe/blob/master/API.md).
+See [API.md](https://github.com/wehjs/weh/blob/master/API.md).
 
 ## How does it compare?
 
-This section is a little bit about how `koe` compares to other static site
+This section is a little bit about how `weh` compares to other static site
 generators (even though it isn't really that):
 
 - __jekyll__: Jekyll is a whole lot different. First off, it provides a whole
@@ -141,20 +141,13 @@ generators (even though it isn't really that):
 - __ghost__: Ghost is just straight up a blogging platform. I don't even know
   why it's on AlternativeTo.
 - __hugo__: Hugo, a bit like Jekyll, has predefined concepts like "pages" and
-  "tags". It's also way more stable and faster than `koe`. Why am I still writing this?
-- __metalsmith__: Metalsmith is probably the thing that's most like `koe`, and
+  "tags". It's also way more stable and faster than `weh`. Why am I still writing this?
+- __metalsmith__: Metalsmith is probably the thing that's most like `weh`, and
   as a matter of fact, its main inspiration. It's also plugin-based, and works
-  with roughly the same concepts. The major difference is that `koe` is more
+  with roughly the same concepts. The major difference is that `weh` is more
   up-to-date (I like promises a lot) and that the API is fairly different.
   Also, it's just not really an active project with an active ecosystem
   anymore (sadly!).
-- __koa__: `koe` is NOT koa please stop sending me e-mails about this
-
-## What does the name mean?
-
-Koe, or, in its german spelling, Kö (= Königsallee), is one of the busiest
-luxury shopping streets in Germany, located in the city of Düsseldorf
-(which is where I live what a surprise haha). Also, it was free on npm.
 
 ## What dependencies does it have?
 

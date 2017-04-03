@@ -46,7 +46,7 @@
 You need Node.js __7.6__ or higher.
 
 ```sh
-npm install @weh/weh
+npm install --save @weh/weh
 ```
 
 ## Example

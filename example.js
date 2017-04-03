@@ -1,4 +1,4 @@
-const koe = require('./index')
+const weh = require('./index')
 const path = require('path')
 
 // define a sample config that overrides/extends some default keys
@@ -18,7 +18,7 @@ function middleware (site) {
 
 // the main execution thread. should return a promise
 async function run () {
-  const site = koe(config, { verbose: true })
+  const site = weh(config, { verbose: true })
   site.use(middleware)
 
   return site.build()

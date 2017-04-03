@@ -1,8 +1,8 @@
-## koe API
+## weh API
 
-### site = koe(config, opts)
+### site = weh(config, opts)
 
-Initialize a new `koe` app. Takes a [config](#config) object that is going to be
+Initialize a new `weh` app. Takes a [config](#config) object that is going to be
 merged with the defaults. Don't worry, it'll still ignore `node_modules` even if
 you didn't specify it.
 
@@ -43,7 +43,7 @@ thing. It basically consists of this:
 
 - __site.config__: The site [configuration](#config).
 - __site.files__: This is the good part. This is the gigantic object that
-  contains all the files `koe` has read during the first part. It looks a little
+  contains all the files `weh` has read during the first part. It looks a little
   bit like this:
 
 ```js
@@ -80,8 +80,8 @@ Configuration is done using a simple config object that takes the following
 values:
 
 - __source__: The source directory where files are being read from. The default
-  is the directory you're running `koe` from.
-- __destination__: The directory `koe` will compile files into. The default is
+  is the directory you're running `weh` from.
+- __destination__: The directory `weh` will compile files into. The default is
   the directory you're in + `_site` (just like Jekyll!)
 - __exclude__: Files and directories to exclude while reading. The default is:
 

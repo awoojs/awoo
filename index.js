@@ -1,3 +1,3 @@
-const koe = require('./lib/koe')
+const weh = require('./lib/weh')
 
-module.exports = koe
+module.exports = weh

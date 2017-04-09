@@ -8,8 +8,9 @@
   "license": "MIT",
   "scripts": {
     "lint": "standard | snazzy",
-    "test": "ava",
-    "test:watch": "ava -w",
+    "ava": "ava",
+    "ava:watch": "ava -w",
+    "test": "npm run lint && npm run ava",
     "test:example": "node example | pino-colada"
   },
   "ava": {

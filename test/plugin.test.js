@@ -6,6 +6,9 @@ const mockHooks = {
   registry: {
     test: ware(),
     anotherTest: ware()
+  },
+  register: function (name, fn) {
+    this.registry[name].use(fn)
   }
 }
 
@@ -20,6 +23,11 @@ test('plugins with one hook are registered and executed', async t => {
   let result = {}
   mockHooks.registry.test.run(result)
   t.is(result.a, 'foo')
+
+  mockHooks.registry = {
+    test: ware(),
+    anotherTest: ware()
+  }
 })
 
 test('plugins with multiple hooks are registered and executed', async t => {

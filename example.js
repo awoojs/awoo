@@ -16,17 +16,21 @@ function middleware (site) {
   site.files['test.md'].contents = 'hey test'
 }
 
+const plugin = {
+  pre_write: middleware
+}
+
 // the main execution thread. should return a promise
 async function run () {
   const site = weh(config, { verbose: true })
-  site.use(middleware)
+  site.plugin(plugin)
 
   return site.build()
 }
 
 // execute the build process and log results
 run().then(res => {
-  console.log(res.files)
+  // console.log(res.files)
 }).catch(err => {
   // optionally, log errors
   throw new Error(err)

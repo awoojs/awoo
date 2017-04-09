@@ -12,7 +12,7 @@ you didn't specify it.
   (file reads/writes, hooks)
 - `silent` (Boolean, default false): whether to log anything at all
 
-### site.plugin(plugin)
+### site.plugin(plugin, [opts])
 
 This is a convenience function that allows you to register multiple hooks in
 one go. It's mainly aimed to make installing `weh` plugins from npm really
@@ -28,6 +28,30 @@ easy. The function takes a single `plugin` argument which looks like this:
 The `pre_read` and `pre_write` keys contain functions that are intended to be
 used with `site`. This means that you can specify every hook supported by `weh`!
 See the `site.hook` documentation for more details about that.
+
+If your plugin takes additional options, you can specify a `configName` key in
+your exported object. So, your plugin might look something like this:
+
+```js
+{
+  configName: 'myCoolPlugin',
+  pre_read: blah,
+  pre_write: blah
+}
+```
+
+Users can then use your plugin options like this:
+
+```js
+const myCoolPlugin = require('myCoolPlugin')
+
+// omitted site setup
+site.plugin(myCoolPlugin, {
+  foo: 'bar'
+})
+```
+
+In your plugin code, you can access these options in `site.config.[configName]`.
 
 ### site.use(hook)
 

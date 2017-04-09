@@ -35,7 +35,7 @@
 ## Features
 
 - __extremely simple__: the API exposes 3 functions!
-- __easy to understand__: only ~170 SLOC!
+- __easy to understand__: only ~200 SLOC!
 - __very modern__: works very well with async functions (node 7.6+)
 - __extendable as h*ck__: provides hooking mechanisms to serve your every need
 

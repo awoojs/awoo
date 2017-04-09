@@ -12,6 +12,23 @@ you didn't specify it.
   (file reads/writes, hooks)
 - `silent` (Boolean, default false): whether to log anything at all
 
+### site.plugin(plugin)
+
+This is a convenience function that allows you to register multiple hooks in
+one go. It's mainly aimed to make installing `weh` plugins from npm really
+easy. The function takes a single `plugin` argument which looks like this:
+
+```js
+{
+  pre_read: site => { do_something() },
+  pre_write: site => { do_something_else() }
+}
+```
+
+The `pre_read` and `pre_write` keys contain functions that are intended to be
+used with `site`. This means that you can specify every hook supported by `weh`!
+See the `site.hook` documentation for more details about that.
+
 ### site.use(hook)
 
 Registers a piece of middleware in the `pre_write` hook (the one you'd want to

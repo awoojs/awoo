@@ -12,7 +12,14 @@ const mockHooks = {
   }
 }
 
-test('plugins with one hook are registered and executed', async t => {
+test.afterEach(() => {
+  mockHooks.registry = {
+    test: ware(),
+    anotherTest: ware()
+  }
+})
+
+test('plugins with one hook are registered and executed', t => {
   const mockPlugin = {
     test: site => { site.a = 'foo' }
   }
@@ -30,7 +37,7 @@ test('plugins with one hook are registered and executed', async t => {
   }
 })
 
-test('plugins with multiple hooks are registered and executed', async t => {
+test('plugins with multiple hooks are registered and executed', t => {
   const mockPlugin = {
     test: site => { site.a = 'foo' },
     anotherTest: site => { site.b = 'bar' }

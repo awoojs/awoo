@@ -13,17 +13,18 @@ const config = {
 
 // define a sample middleware
 function middleware (site) {
-  site.files['test.md'].contents = 'hey test'
+  site.files['test.md'].contents = site.config.test.replacer
 }
 
 const plugin = {
+  configName: 'test',
   pre_write: middleware
 }
 
 // the main execution thread. should return a promise
 async function run () {
   const site = weh(config, { verbose: true })
-  site.plugin(plugin)
+  site.plugin(plugin, { replacer: 'hey' })
 
   return site.build()
 }

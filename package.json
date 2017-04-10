@@ -10,8 +10,7 @@
     "lint": "standard | snazzy",
     "ava": "ava",
     "ava:watch": "ava -w",
-    "test": "npm run lint && npm run ava",
-    "test:example": "node example | pino-colada"
+    "test": "npm run lint && npm run ava"
   },
   "ava": {
     "babel": {
@@ -32,7 +31,6 @@
   "devDependencies": {
     "ava": "^0.18.2",
     "babel-preset-stage-0": "^6.22.0",
-    "pino-colada": "^1.2.1",
     "sinon": "^1.17.7",
     "snazzy": "^6.0.0",
     "standard": "^9.0.0"

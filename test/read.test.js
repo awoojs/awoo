@@ -5,7 +5,8 @@ import read from '../lib/read'
 
 test('reads files correctly', async t => {
   const config = {
-    source: 'test/sample'
+    source: 'test/sample',
+    exclude: []
   }
   const args = {
     config,
@@ -36,6 +37,6 @@ test('throws on nonexistent path', async t => {
   } catch (err) {
     t.truthy(err[0])
     t.is(err[0].code, 'ENOENT')
-    t.true(args.logger.debug.callCount === 0)
+    t.is(args.logger.debug.callCount, 0)
   }
 })

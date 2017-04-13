@@ -1,4 +1,6 @@
-<h1 align="center">weh</h1>
+<h1 align="center">
+  <img src="logo_text.png" width="150" alt="weh text logo" />
+</h1>
 
 <div align="center">
   a general, lightweight framework for parsing loads of files

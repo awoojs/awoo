@@ -128,6 +128,24 @@ the stuff you need!
 
 See [API.md](https://github.com/wehjs/weh/blob/master/API.md).
 
+## Development Setup
+
+In the case that you want to work on `weh` itself, you're gonna need to clone
+this repository first:
+
+```sh
+git clone https://github.com/wehjs/weh
+```
+
+To install all of the development dependencies required for testing and such,
+you can just run `npm install`. If you want to be all cutting edge, we have
+a `package-lock.json` designed for use with npm version 5:
+
+```sh
+npm install -g npm5
+npm5 install
+```
+
 ## How does it compare?
 
 This section is a little bit about how `weh` compares to other static site

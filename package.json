@@ -12,6 +12,10 @@
     "ava:watch": "ava -w",
     "test": "npm run lint && npm run ava"
   },
+  "files": [
+    "lib",
+    "index.js"
+  ],
   "ava": {
     "babel": {
       "presets": [

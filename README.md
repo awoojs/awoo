@@ -146,6 +146,9 @@ npm install -g npm5
 npm5 install
 ```
 
+Please note that npm version 5 is, at the time of writing, still in beta.
+Therefore it might not work as you'd expect (hopefully it does though).
+
 ## How does it compare?
 
 This section is a little bit about how `weh` compares to other static site

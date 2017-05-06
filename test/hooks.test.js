@@ -1,6 +1,6 @@
-import test from 'ava'
-import ware from 'ware'
-import Hooks from '../lib/hooks'
+const test = require('ava')
+const ware = require('ware')
+const Hooks = require('../lib/hooks')
 
 test('hooks are initialized with a ware instance', async t => {
   const hooks = new Hooks()

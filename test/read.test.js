@@ -1,7 +1,7 @@
-import test from 'ava'
-import path from 'path'
-import { spy } from 'sinon'
-import read from '../lib/read'
+const test = require('ava')
+const { spy } = require('sinon')
+const path = require('path')
+const read = require('../lib/read')
 
 test('reads files correctly', async t => {
   const config = {

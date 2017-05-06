@@ -1,6 +1,6 @@
-import test from 'ava'
-import deepmerge from 'deepmerge'
-import config from '../lib/config'
+const test = require('ava')
+const deepmerge = require('deepmerge')
+const config = require('../lib/config')
 
 test('config is merged correctly', async t => {
   const conf1 = config.generateConfig()

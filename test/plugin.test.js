@@ -1,6 +1,6 @@
-import test from 'ava'
-import ware from 'ware'
-import { addPlugin } from '../lib/plugin'
+const test = require('ava')
+const ware = require('ware')
+const { addPlugin } = require('../lib/plugin')
 
 const mockHooks = {
   registry: {

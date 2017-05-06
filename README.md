@@ -138,16 +138,7 @@ git clone https://github.com/wehjs/weh
 ```
 
 To install all of the development dependencies required for testing and such,
-you can just run `npm install`. If you want to be all cutting edge, we have
-a `package-lock.json` designed for use with npm version 5:
-
-```sh
-npm install -g npm5
-npm5 install
-```
-
-Please note that npm version 5 is, at the time of writing, still in beta.
-Therefore it might not work as you'd expect (hopefully it does though).
+you can just run `npm install`.
 
 ## How does it compare?
 

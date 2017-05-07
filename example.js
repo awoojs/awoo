@@ -6,7 +6,7 @@ const plugin = ({ value = 'hi' }) => {
   }]
 }
 
-const hook = files => files.map(file => Object.assign(file, { contents: value }))
+const hook = files => files.map(file => Object.assign(file, { contents: 'a' }))
 
 weh(async site => {
   site.config({ source: '_test' })

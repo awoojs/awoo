@@ -1,4 +1,4 @@
-const weh = require('../index')
+const weh = require('./index2')
 
 const plugin = ({ value = 'hi' }) => {
   return ['pre_write', files => {
@@ -6,8 +6,12 @@ const plugin = ({ value = 'hi' }) => {
   }]
 }
 
+const hook = files => files.map(file => Object.assign(file, { contents: value }))
+
 weh(async site => {
-  site.use(plugin)
-}).then(() => {
-  console.log('done!')
+  site.config({ source: '_test' })
+  site.hook('pre_read', hook)
+  return site
+}).then(cool => {
+  console.log(cool)
 })

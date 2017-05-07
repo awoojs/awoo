@@ -8,7 +8,7 @@ const plugin = ({ value = 'hi' }) => {
 
 weh(async site => {
   site.config({ source: '_test' })
-  site.use(plugin)
+  site.use(plugin, { value: 'test' })
   return site
 }).then(cool => {
   console.log(cool.files)

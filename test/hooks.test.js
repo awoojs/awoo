@@ -1,5 +1,5 @@
 const test = require('ava')
-const hooks = require('../lib/hooks2')
+const hooks = require('../lib/hooks')
 
 test('one hook is executed correctly', async t => {
   const h = hooks()

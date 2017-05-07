@@ -1,4 +1,4 @@
-const weh = require('./index2')
+const weh = require('./index')
 
 const plugin = ({ value = 'hi' }) => {
   return ['pre_write', files => {

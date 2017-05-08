@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="logo_text.png" width="150" alt="weh text logo" />
+  <img src="http://i.imgsafe.org/fbf70cd0e5.png" width="150" alt="weh text logo" />
 </h1>
 
 <div align="center">
@@ -36,7 +36,7 @@
 
 ## Features
 
-- __extremely simple__: the API exposes 4 functions!
+- __extremely simple__: the API exposes _one function_!
 - __easy to understand__: only ~200 SLOC!
 - __very modern__: works very well with async functions (node 7.6+)
 - __extendable as h*ck__: provides hooking mechanisms to serve your every need
@@ -57,32 +57,27 @@ directory to "hey, what's up":
 ```js
 const weh = require('@weh/weh')
 
-// specify the source directory
-const config = {
-  source: 'example_dir'
-}
-
-// the middleware that's going to run
-function middleware (site) {
-  for (let file in site.files) {
-    site.files[file].contents = Buffer.from('hey, what\'s up')
+// this is this simplest plugin you can build!
+// conveniently, plugins are just normal functions
+const plugin = () => {
+  return files => {
+    // replace all file contents with the string
+    return files.map(file => Object.assign(file, {contents: 'hey, what\'s up'}))
   }
 }
 
-// our main execution function
-async function main () {
-  const site = weh(config)
-  site.use(middleware)
-
-  return site.build()
-}
-
-main().then(final_site => {
-  // do some more stuff, maybe?
-}).catch(err => {
-  throw new Error(err)
+// enter our main function:
+// the main function should be an async function so that
+// it automatically returns a promise
+weh(async site => {
+  // we register our plugin...
+  site.plugin(plugin)
+  // ...and initiate the build process
+  return site
 })
 ```
+
+That's 8 lines of code!
 
 Let's save this as `example.js`. To run it, you need Node.js version 7.6 or
 higher. The latest stable version will work.
@@ -95,8 +90,6 @@ node example.js
 logs, I recommend using [pino-colada](http://npm.im/pino-colada):
 
 ```sh
-yarn global add pino-colada
-# or
 npm i -g pino-colada
 
 # pipe the script output into pino-colada
@@ -108,9 +101,9 @@ node example.js | pino-colada
 It's fairly simple! What `weh` does can be split up into two things:
 
 - First, it reads a directory and saves all of the information about each file
-  into a gigantic object. That object can be manipulated by _middleware_, which
+  into a gigantic object. That object can be manipulated by _plugins_, which
   makes `weh` actually do things.
-- After most middleware is run, `weh` writes the files as they are described
+- After most plugins are run, `weh` writes the files as they are described
   in the gigantic object to disk.
 
 It's that simple! Static site generators aren't rocket science or whatever.
@@ -163,14 +156,15 @@ generators (even though it isn't really that):
 
 ## What dependencies does it have?
 
-- [`deepmerge`](http://npm.im/deepmerge) - used to merge the user-defined
-  config into the predefined config object
-- [`walk`](http://npm.im/walk) - walks through directories
-- [`ware`](http://npm.im/ware) - handles middleware chains
+- [`deepmerge`](http://npm.im/deepmerge) - used to handle configuration management
+- [`walk`](http://npm.im/walk) - walks through directories to read them
+- [`trough`](http://npm.im/trough) - handles middleware chains
 - [`write-file-promise`](http://npm.im/write-file-promise) and
   [`fs-readfile-promise`](http://npm.im/fs-readfile-promise) - promise-based
   versions of the standard `fs` methods
 - [`pino`](http://npm.im/pino) - used for logging
+- [`lodash.flatten`](http://npm.im/lodash.flatten) - normalizes plugin arrays
+- [`excluded`](http://npm.im/excluded) - handles path exclusion logic
 
 If you have any ideas as to how to eliminate a dependency, you're more than
 welcome to pitch it here!

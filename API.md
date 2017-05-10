@@ -79,9 +79,9 @@ Hooking into multiple points would look like this:
 ```js
 const plugin = () => {
   return [
-    ['pre_read', site => {
+    ['pre_read', files => {
       // do something
-    }], ['post_write', site => {
+    }], ['post_write', files => {
       // do something else
     }]
   ]
@@ -92,7 +92,7 @@ While just hooking after reading looks like this:
 
 ```js
 const plugin = () => {
-  return site => {
+  return files => {
     // do something
   }
 }
@@ -107,14 +107,10 @@ pre_write (the default)
 post_write
 ```
 
-All of them receive the same parameter in their function, namely the `site`
-parameter. This is a very big object that contains all of the data collectible
-from the source fileset. It contains two main keys:
+All of them receive the same parameter in their function, namely the `files`
+parameter. This is a very big array that contains all of the data collectible
+from the source fileset. It looks a little something like this:
 
-- __site.config__: The site [configuration][default configuration].
-- __site.files__: This is the main part which holds all of the files `weh` has
-  read from the source directory. It looks like this:
-  
 ```js
 [
   {
@@ -135,13 +131,13 @@ from the source fileset. It contains two main keys:
 (`stats` is an instance of [`fs.Stats`][fs-stats])
 
 And that's it! You can modify all of the parts you want, just be sure to return
-the (modified) `site` object at the end.
+the (modified) `files` object at the end.
 
 So, to recap, your plugin might look a little like this:
 
 ```js
 const plugin = opts => {
-  return site => site.map(file => file.contents = opts)
+  return files => files.map(file => file.contents = opts)
 }
 
 // ...omit weh initialization

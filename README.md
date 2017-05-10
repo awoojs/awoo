@@ -33,6 +33,18 @@
       alt="code style: standard" />
   </a>
 </div>
+<br />
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [Example](#example)
+- [How does it work?](#how-does-it-work)
+- [API Documentation](#api-documentation)
+- [Development Setup](#development-setup)
+- [How does it compare?](#how-does-it-compare)
+- [What dependencies does it have?](#what-dependencies-does-it-have)
+- [License](#license)
 
 ## Features
 

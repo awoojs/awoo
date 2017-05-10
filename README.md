@@ -177,6 +177,7 @@ generators (even though it isn't really that):
 - [`pino`](http://npm.im/pino) - used for logging
 - [`lodash.flatten`](http://npm.im/lodash.flatten) - normalizes plugin arrays
 - [`excluded`](http://npm.im/excluded) - handles path exclusion logic
+- [`is-text-path`](http://npm.im/is-text-path) - provides logic to correctly read binary files
 
 If you have any ideas as to how to eliminate a dependency, you're more than
 welcome to pitch it here!

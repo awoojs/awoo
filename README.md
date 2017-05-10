@@ -83,7 +83,7 @@ const plugin = () => {
 // it automatically returns a promise
 weh(async site => {
   // we register our plugin...
-  site.plugin(plugin)
+  site.use(plugin)
   // ...and initiate the build process
   return site
 })

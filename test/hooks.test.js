@@ -1,23 +1,19 @@
 const test = require('ava')
-const ware = require('ware')
-const Hooks = require('../lib/hooks')
+const hooks = require('../lib/hooks')
 
-test('hooks are initialized with a ware instance', async t => {
-  const hooks = new Hooks()
-  t.true(hooks.registry.pre_write instanceof ware)
+test('one hook is executed correctly', async t => {
+  const h = hooks()
+  h.register('pre_write', _ => 'test')
+  const res = await h.run('pre_write', 'a')
+  t.is(res, 'test')
 })
 
-test('hooks register properly', async t => {
-  const hooks = new Hooks()
-  hooks.register('pre_write', () => {})
-  t.is(hooks.registry.pre_write.fns.length, 1)
-})
-
-test('hooks execute correctly', async t => {
-  const hooks = new Hooks()
-  hooks.register('pre_write', obj => {
-    obj.a = 'test'
-  })
-  const res = await hooks.run('pre_write', {})
-  t.is(res.a, 'test')
+test('multiple hooks are executed correctly', async t => {
+  const h = hooks()
+  h.register('post_write', str => `${str}ttt`)
+  h.register('pre_read', str => `${str}sss`)
+  const res1 = await h.run('pre_read', 'te')
+  const res2 = await h.run('post_write', res1)
+  t.is(res1, 'tesss')
+  t.is(res2, 'tesssttt')
 })

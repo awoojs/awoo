@@ -8,14 +8,14 @@ is built. Basically, it looks like this:
 ```js
 weh(async site => {
   // your site definition here
+  return site
 })
 ```
 
 This function takes a `site` parameter. This parameter is responsible for
 configuring your entire site, and all of its methods are documented below.
 
-This function should return a Promise. While it's not enforced, it is
-recommended if you want to access the post-build `site` object. Thankfully,
+This function needs to return `site`, wrapped in a promise. Thankfully,
 making it return a promise is as easy as using the `async` keyword
 (see the above example).
 

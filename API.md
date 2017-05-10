@@ -1,130 +1,49 @@
 ## weh API
 
-### site = weh(config, opts)
+### weh(function (site))
 
-Initialize a new `weh` app. Takes a [config](#config) object that is going to be
-merged with the defaults. Don't worry, it'll still ignore `node_modules` even if
-you didn't specify it.
-
-`opts` is an object that takes the following keys:
-
-- `verbose` (Boolean, default false): whether to log debug operations
-  (file reads/writes, hooks)
-- `silent` (Boolean, default false): whether to log anything at all
-
-### site.plugin(plugin, [opts])
-
-This is a convenience function that allows you to register multiple hooks in
-one go. It's mainly aimed to make installing `weh` plugins from npm really
-easy. The function takes a single `plugin` argument which looks like this:
+Builds a site. This function takes another function that describes how the site
+is built. Basically, it looks like this:
 
 ```js
-{
-  pre_read: site => { do_something() },
-  pre_write: site => { do_something_else() }
-}
-```
-
-The `pre_read` and `pre_write` keys contain functions that are intended to be
-used with `site`. This means that you can specify every hook supported by `weh`!
-See the `site.hook` documentation for more details about that.
-
-If your plugin takes additional options, you can specify a `configName` key in
-your exported object. So, your plugin might look something like this:
-
-```js
-{
-  configName: 'myCoolPlugin',
-  pre_read: blah,
-  pre_write: blah
-}
-```
-
-Users can then use your plugin options like this:
-
-```js
-const myCoolPlugin = require('myCoolPlugin')
-
-// omitted site setup
-site.plugin(myCoolPlugin, {
-  foo: 'bar'
+weh(async site => {
+  // your site definition here
 })
 ```
 
-In your plugin code, you can access these options in `site.config.[configName]`.
+This function takes a `site` parameter. This parameter is responsible for
+configuring your entire site, and all of its methods are documented below.
 
-### site.use(hook)
+This function should return a Promise. While it's not enforced, it is
+recommended if you want to access the post-build `site` object. Thankfully,
+making it return a promise is as easy as using the `async` keyword
+(see the above example).
 
-Registers a piece of middleware in the `pre_write` hook (the one you'd want to
-put most middleware into). More info on hook middleware can be found
-[here](#middleware).
+### site.config(conf)
 
-### site.hook(name, hook)
+Configures your site with either a specified config object or the default config.
+You don't _need_ to call this function in your build process - if you omit it,
+`weh` will use the [default config] instead, though you'd probably want to
+adjust your source and destination paths.
 
-Registers a custom hook. This works exactly the same as `site.use`
-(`site.use` actually uses `site.hook` internally), but allows you to hook into
-any part of the build process. `name` can be any of the following:
+### site.use(plugin, [options])
 
-```
-pre_read
-post_read
-pre_write (aliased to site.use)
-post_write
-```
+Registers a plugin to be used in the build process. See [plugin structure] for
+more information on how to write plugins.
 
-### site.build() -> Promise
+The `options` argument is optional and can be used to pass plugin-specific
+options. It should be an object, although that is up to each plugin to
+decide.
 
-Runs through the build process, calling all hooks. Returns a promise with the
-finished site object as its parameter.
+### Default Configuration
 
-### Middleware
-
-Middleware is just a function that takes the entire site object. Yeah, the whole
-thing. It basically consists of this:
-
-- __site.config__: The site [configuration](#config).
-- __site.files__: This is the good part. This is the gigantic object that
-  contains all the files `weh` has read during the first part. It looks a little
-  bit like this:
-
-```js
-{
-  'file.md': {
-    path: '/Users/username/myproject/file.md',
-    contents: <Buffer ...>,
-    stats: [Object]
-  },
-  'directory/another_file.js': {
-    path: '/Users/username/myproject/directory/another_file.js',
-    contents: <Buffer ...>,
-    stats: [Object]
-  }
-}
-```
-
-And that's really it. You can do whatever you want with the object, it'll
-magically get carried over to the rest of the middleware. You don't even need
-to return anything! ~JS magic~
-
-So, to recap, your middleware function might look a little like this:
-
-```js
-function my_middleware (site) {
-  site.my_custom_stuff = process_some_things(site.files)
-  // that's it? yep
-}
-```
-
-### Config
-
-Configuration is done using a simple config object that takes the following
-values:
+This is an exhaustive list of all `weh` config options:
 
 - __source__: The source directory where files are being read from. The default
   is the directory you're running `weh` from.
-- __destination__: The directory `weh` will compile files into. The default is
-  the directory you're in + `_site` (just like Jekyll!)
-- __exclude__: Files and directories to exclude while reading. The default is:
+- __destination__: The directory `weh` will place built files into. The default
+  is the directory you're in + `_site` (just like Jekyll!)
+- __exclude__: Files and directories to exclude when reading. The default is:
 
 ```
 node_modules/
@@ -135,3 +54,105 @@ coverage/
 
 If you have any suggestions on what should be excluded by default, please open
 an issue!
+
+## Plugin Structure
+
+The plugin itself is a function. It can take an optional `options`
+parameter, which the user can pass through in the `site.use` call:
+
+```js
+const plugin = (opts = {}) => {
+  // do something cool
+}
+```
+
+It's best to set this to `{}` as a default to prevent unwanted errors, even
+if your plugin isn't taking any options.
+
+A plugin should return a function or an array of tuples (pairs of two). You
+should only return an array if you need to hook into multiple points of the
+build process. The default position in the build chain is after building, but
+before writing to disk. This should be enough for most plugins.
+
+Hooking into multiple points would look like this:
+
+```js
+const plugin = () => {
+  return [
+    ['pre_read', site => {
+      // do something
+    }], ['post_write', site => {
+      // do something else
+    }]
+  ]
+}
+```
+
+While just hooking after reading looks like this:
+
+```js
+const plugin = () => {
+  return site => {
+    // do something
+  }
+}
+```
+
+There are four points where you can hook into:
+
+```
+pre_read
+post_read
+pre_write (the default)
+post_write
+```
+
+All of them receive the same parameter in their function, namely the `site`
+parameter. This is a very big object that contains all of the data collectible
+from the source fileset. It contains two main keys:
+
+- __site.config__: The site [configuration][default configuration].
+- __site.files__: This is the main part which holds all of the files `weh` has
+  read from the source directory. It looks like this:
+  
+```js
+[
+  {
+    path: 'file.md',
+    absolutePath: '/Users/username/project/file.md',
+    contents: 'hello! this is content',
+    stats: [Object]
+  },
+  {
+    path: 'directory/cool.md',
+    absolutePath: '/Users/username/project/directory/cool.md',
+    contents: 'this is a cooler file',
+    stats: [Object]
+  }
+]
+```
+
+(`stats` is an instance of [`fs.Stats`][fs-stats])
+
+And that's it! You can modify all of the parts you want, just be sure to return
+the (modified) `site` object at the end.
+
+So, to recap, your plugin might look a little like this:
+
+```js
+const plugin = opts => {
+  return site => site.map(file => file.contents = opts)
+}
+
+// ...omit weh initialization
+site.use(plugin, 'haha i\'ve replaced your file!')
+// ...omit other weh stuff
+```
+
+Of course, you can put this into a npm module and publish it for the world to
+see! I advise that you add the `weh` tag to your package so that it remains
+discoverable.
+
+[default config]: #default-configuration
+[plugin structure]: #plugin-structure
+[fs-stats]: https://nodejs.org/dist/latest-v6.x/docs/api/fs.html#fs_class_fs_stats

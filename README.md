@@ -54,8 +54,6 @@
 
 ## Features
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/wehjs/weh.svg)](https://greenkeeper.io/)
-
 - __extremely simple__: the API exposes _one function_!
 - __easy to understand__: only ~200 SLOC!
 - __very modern__: works very well with async functions (node 7.6+)

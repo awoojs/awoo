@@ -139,6 +139,14 @@ the stuff you need!
 
 See [API.md](https://github.com/wehjs/weh/blob/master/API.md).
 
+## Plugins
+
+Since it's really easy to write `weh` plugins, anyone can make and publish one!
+If you make a plugin, you should add a GitHub topic `weh` and probably also
+add `weh` as a keyword in your `package.json`.
+
+[Here's a list of all weh plugins on GitHub](https://github.com/search?utf8=%E2%9C%93&q=topic%3Aweh&type=)
+
 ## Development Setup
 
 In the case that you want to work on `weh` itself, you're gonna need to clone

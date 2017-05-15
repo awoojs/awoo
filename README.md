@@ -32,6 +32,12 @@
     <img src="https://img.shields.io/badge/code%20style-standard-blue.svg?style=flat-square"
       alt="code style: standard" />
   </a>
+
+  <!-- greenkeeper -->
+  <a href="https://greenkeeper.io">
+    <img src="https://badges.greenkeeper.io/wehjs/weh.svg?style=flat-square"
+      alt="uses greenkeeper" />
+  </a>
 </div>
 <br />
 

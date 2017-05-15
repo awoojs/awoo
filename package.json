@@ -22,15 +22,15 @@
     "fs-readfile-promise": "3.0.0",
     "is-text-path": "1.0.1",
     "lodash.flatten": "4.4.0",
-    "pino": "4.1.2",
+    "pino": "4.5.2",
     "trough": "1.0.0",
     "walk": "2.3.9",
     "write-file-promise": "1.0.0"
   },
   "devDependencies": {
-    "ava": "0.18.2",
-    "sinon": "1.17.7",
-    "snazzy": "6.0.0",
-    "standard": "9.0.0"
+    "ava": "0.19.1",
+    "sinon": "2.2.0",
+    "snazzy": "7.0.0",
+    "standard": "10.0.2"
   }
 }

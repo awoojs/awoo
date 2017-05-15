@@ -124,11 +124,25 @@ from the source fileset. It looks a little something like this:
     absolutePath: '/Users/username/project/directory/cool.md',
     contents: 'this is a cooler file',
     stats: [Object]
+  },
+  {
+    path: 'directory/image.png',
+    absolutePath: '/Users/username/project/directory/image.png',
+    contents: [Buffer],
+    stats: [Object]
   }
 ]
 ```
 
 (`stats` is an instance of [`fs.Stats`][fs-stats])
+
+If `weh` stumbles upon a binary file, it is kept in a buffer structure, because
+converting it to a string would effectively break the file. You can filter
+binary files from your fileset like this:
+
+```js
+const onlyTextFiles = files.filter(file => typeof file.contents === 'string')
+```
 
 And that's it! You can modify all of the parts you want, just be sure to return
 the (modified) `files` object at the end.

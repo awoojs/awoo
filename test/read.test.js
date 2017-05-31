@@ -19,7 +19,25 @@ test('reads files correctly', async t => {
 
   const file = res.find(f => f.path === 'test.md')
   t.true(file.absolutePath === expectedPath)
-  t.true(args.logger.debug.callCount === 2)
+  t.true(file.contents.trim() === 'Hello!')
+  t.true(args.logger.debug.callCount === 3)
+})
+
+test('reads binary files as buffers', async t => {
+  const config = {
+    source: 'test/sample',
+    exclude: []
+  }
+  const args = {
+    config,
+    logger: {
+      debug: spy()
+    }
+  }
+  const res = await read(args)
+  const file = res.find(f => f.path === 'picture.png')
+  t.true(Buffer.isBuffer(file.contents))
+  t.true(Buffer.byteLength(file.contents) === 1119)
 })
 
 test('throws on nonexistent path', async t => {

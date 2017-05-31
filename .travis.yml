@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 7.6
-  - 7.7
-  - 7.8
+  - 7.9
+  - 7.10
+  - 8.0
 after_success: npm run coverage

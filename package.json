@@ -9,9 +9,10 @@
   "scripts": {
     "lint": "standard | snazzy",
     "ava": "ava",
-    "ava:ci": "ava && nyc report --reporter=lcov && codecov",
+    "ava:ci": "nyc ava",
     "ava:watch": "ava -w",
-    "test": "npm run lint && npm run ava:ci"
+    "test": "npm run lint && npm run ava:ci",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "files": [
     "lib",

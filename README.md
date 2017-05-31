@@ -16,27 +16,30 @@
   <a href="https://nodejs.org/api/documentation.html#documentation_stability_index">
     <img src="https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square"
       alt="API stability" />
-</a>
+  </a>
+
+  <!-- code coverage -->
+  <a href="https://codecov.io/gh/wehjs/weh">
+    <img src="https://codecov.io/gh/wehjs/weh/branch/master/graph/badge.svg?style=flat-square"
+      alt="code coverage" />
+  </a>
+
   <!-- travis ci -->
   <a href="https://travis-ci.org/wehjs/weh">
     <img src="https://img.shields.io/travis/wehjs/weh.svg?style=flat-square"
-      alt="test coverage" />
+      alt="test status" />
   </a>
+
   <!-- npm version -->
   <a href="https://npmjs.org/package/@weh/weh">
     <img src="https://img.shields.io/npm/v/@weh/weh.svg?style=flat-square"
       alt="npm version" />
   </a>
+
   <!-- code style -->
   <a href="https://github.com/feross/standard">
     <img src="https://img.shields.io/badge/code%20style-standard-blue.svg?style=flat-square"
       alt="code style: standard" />
-  </a>
-
-  <!-- greenkeeper -->
-  <a href="https://greenkeeper.io">
-    <img src="https://badges.greenkeeper.io/wehjs/weh.svg?style=flat-square"
-      alt="uses greenkeeper" />
   </a>
 </div>
 <br />

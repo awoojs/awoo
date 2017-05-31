@@ -16,6 +16,14 @@
     "lib",
     "index.js"
   ],
+  "ava": {
+    "source": [
+      "lib/**/*.js"
+    ],
+    "files": [
+      "test/*.js"
+    ]
+  },
   "dependencies": {
     "deepmerge": "1.3.2",
     "excluded": "1.0.2",
@@ -29,6 +37,7 @@
   },
   "devDependencies": {
     "ava": "0.19.1",
+    "rimraf": "2.6.1",
     "sinon": "2.2.0",
     "snazzy": "7.0.0",
     "standard": "10.0.2"

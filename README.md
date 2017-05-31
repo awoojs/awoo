@@ -20,7 +20,7 @@
 
   <!-- code coverage -->
   <a href="https://codecov.io/gh/wehjs/weh">
-    <img src="https://codecov.io/gh/wehjs/weh/branch/master/graph/badge.svg?style=flat-square"
+    <img src="https://img.shields.io/codecov/c/github/wehjs/weh.svg?style=flat-square"
       alt="code coverage" />
   </a>
 

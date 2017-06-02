@@ -40,7 +40,7 @@
   "devDependencies": {
     "ava": "0.19.1",
     "codecov": "2.2.0",
-    "nyc": "10.3.2",
+    "nyc": "11.0.2",
     "rimraf": "2.6.1",
     "sinon": "2.2.0",
     "snazzy": "7.0.0",

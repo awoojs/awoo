@@ -32,7 +32,7 @@
     "fs-readfile-promise": "3.0.0",
     "is-text-path": "1.0.1",
     "lodash.flatten": "4.4.0",
-    "pino": "4.5.2",
+    "pino": "4.5.4",
     "trough": "1.0.0",
     "walk": "2.3.9",
     "write-file-promise": "1.0.0"

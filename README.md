@@ -108,15 +108,25 @@ higher. The latest stable version will work.
 node example.js
 ```
 
-`weh` outputs logs in _JSON formatting_ by default. If you want nice and cute
-logs, I recommend using [pino-colada](http://npm.im/pino-colada):
+`weh` doesn't output logs by default. If you want logs
+(for example, for debugging), you can set the `DEBUG` environment variable to:
 
 ```sh
-npm i -g pino-colada
+weh # for base logs
+weh:read # for specific read logs
+weh:write # for specific write logs
 
-# pipe the script output into pino-colada
-node example.js | pino-colada
+# you can also combine any of the three
+weh,weh:read
 ```
+
+To get all logs at once, you can just set the variable to `weh*`.
+
+```bash
+DEBUG=weh* node my_script # full logging!
+```
+
+`weh` plugins may implement logging with different `DEBUG` names.
 
 ## How does it work?
 
@@ -163,6 +173,11 @@ git clone https://github.com/wehjs/weh
 To install all of the development dependencies required for testing and such,
 you can just run `npm install`.
 
+There's a couple of convenience npm scripts that help you when working on `weh`.
+To run linters and tests, run `npm test`. To only run tests, run `npm run ava`.
+If you want to watch your test files and rerun when they change, run
+`npm run ava:watch`.
+
 ## How does it compare?
 
 This section is a little bit about how `weh` compares to other static site
@@ -192,7 +207,7 @@ generators (even though it isn't really that):
 - [`write-file-promise`](http://npm.im/write-file-promise) and
   [`fs-readfile-promise`](http://npm.im/fs-readfile-promise) - promise-based
   versions of the standard `fs` methods
-- [`pino`](http://npm.im/pino) - used for logging
+- [`debug`](http://npm.im/debug) - used for logging
 - [`lodash.flatten`](http://npm.im/lodash.flatten) - normalizes plugin arrays
 - [`excluded`](http://npm.im/excluded) - handles path exclusion logic
 - [`is-text-path`](http://npm.im/is-text-path) - provides logic to correctly read binary files

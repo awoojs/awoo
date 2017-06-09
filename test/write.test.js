@@ -1,5 +1,4 @@
 const test = require('ava')
-const { spy } = require('sinon')
 const rimraf = require('rimraf')
 const fs = require('fs')
 const write = require('../lib/write')
@@ -16,10 +15,7 @@ test('writes regular files', async t => {
         path: 'test.md',
         contents: 'aaaa'
       }
-    ],
-    logger: {
-      debug: spy()
-    }
+    ]
   }
 
   await write(site)
@@ -38,10 +34,7 @@ test('writes multiple files', async t => {
         path: 'test-two.txt',
         contents: 'text'
       }
-    ],
-    logger: {
-      debug: spy()
-    }
+    ]
   }
 
   await write(site)
@@ -57,10 +50,7 @@ test('writes binary files', async t => {
         path: 'binary',
         contents: Buffer.from([0x11, 0x20b0])
       }
-    ],
-    logger: {
-      debug: spy()
-    }
+    ]
   }
 
   await write(site)

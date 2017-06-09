@@ -1,5 +1,4 @@
 const test = require('ava')
-const { spy } = require('sinon')
 const path = require('path')
 const read = require('../lib/read')
 
@@ -9,10 +8,7 @@ test('reads files correctly', async t => {
     exclude: []
   }
   const args = {
-    config,
-    logger: {
-      debug: spy()
-    }
+    config
   }
   const res = await read(args)
   const expectedPath = path.join(__dirname, 'sample/test.md')
@@ -20,7 +16,6 @@ test('reads files correctly', async t => {
   const file = res.find(f => f.path === 'test.md')
   t.true(file.absolutePath === expectedPath)
   t.true(file.contents.trim() === 'Hello!')
-  t.true(args.logger.debug.callCount === 3)
 })
 
 test('reads binary files as buffers', async t => {
@@ -29,10 +24,7 @@ test('reads binary files as buffers', async t => {
     exclude: []
   }
   const args = {
-    config,
-    logger: {
-      debug: spy()
-    }
+    config
   }
   const res = await read(args)
   const file = res.find(f => f.path === 'picture.png')
@@ -45,10 +37,7 @@ test('throws on nonexistent path', async t => {
     source: 'test/fakepath'
   }
   const args = {
-    config,
-    logger: {
-      debug: spy()
-    }
+    config
   }
 
   try {
@@ -56,6 +45,5 @@ test('throws on nonexistent path', async t => {
   } catch (err) {
     t.truthy(err[0])
     t.is(err[0].code, 'ENOENT')
-    t.is(args.logger.debug.callCount, 0)
   }
 })

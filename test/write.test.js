@@ -1,5 +1,4 @@
 const test = require('ava')
-const { spy } = require('sinon')
 const rimraf = require('rimraf')
 const fs = require('fs')
 const write = require('../lib/write')

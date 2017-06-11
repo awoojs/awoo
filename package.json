@@ -12,7 +12,8 @@
     "ava:ci": "nyc ava",
     "ava:watch": "ava -w",
     "test": "npm run lint && npm run ava:ci",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "update-coc": "weallbehave -o . && git add CODE_OF_CONDUCT.md && git commit -m 'update code of conduct'"
   },
   "files": [
     "lib",
@@ -35,6 +36,7 @@
     "lodash.flatten": "4.4.0",
     "trough": "1.0.0",
     "walk": "2.3.9",
+    "weallbehave": "1.2.0",
     "write-file-promise": "1.0.0"
   },
   "devDependencies": {

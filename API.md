@@ -73,7 +73,7 @@ if your plugin isn't taking any options.
 
 A plugin should return a function or an array of tuples (pairs of two). You
 should only return an array if you need to hook into multiple points of the
-build process. The default position in the build chain is after building, but
+build process. The default position in the build chain is after reading, but
 before writing to disk. This should be enough for most plugins.
 
 Hooking into multiple points would look like this:

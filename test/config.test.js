@@ -13,3 +13,11 @@ test('config is merged correctly', async t => {
   const conf2 = config.generateConfig(modifier)
   t.deepEqual(conf2, deepmerge(config.DEFAULT_CONFIG, modifier))
 })
+
+test('destination is automatically excluded', async t => {
+  const modifier = {
+    destination: 'test_blah'
+  }
+  const conf = config.generateConfig(modifier)
+  t.true(conf.exclude.includes('test_blah'))
+})

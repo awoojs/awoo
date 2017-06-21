@@ -4,7 +4,7 @@
   "description": "small site generator",
   "main": "index.js",
   "repository": "git@github.com:wehjs/weh.git",
-  "author": "penny <penny@penny.lgbt>",
+  "author": "olivia <olivia@fastmail.com>",
   "license": "MIT",
   "scripts": {
     "lint": "standard | snazzy",

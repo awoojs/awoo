@@ -208,7 +208,6 @@ generators (even though it isn't really that):
   [`fs-readfile-promise`](http://npm.im/fs-readfile-promise) - promise-based
   versions of the standard `fs` methods
 - [`debug`](http://npm.im/debug) - used for logging
-- [`lodash.flatten`](http://npm.im/lodash.flatten) - normalizes plugin arrays
 - [`excluded`](http://npm.im/excluded) - handles path exclusion logic
 - [`is-text-path`](http://npm.im/is-text-path) - provides logic to correctly read binary files
 

@@ -45,5 +45,5 @@ test('correctly runs in integration mode', async t => {
   }, files)
 
   t.is(res.files[0].contents, 'test2')
-  t.true(fs.existsSync('test/sample_dest'))
+  t.true(!fs.existsSync('test/sample_dest'))
 })

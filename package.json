@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "standard | snazzy",
-    "ava": "unset DEBUG; ava",
-    "ava:ci": "unset DEBUG; nyc ava",
+    "ava": "unset DEBUG; ava --serial",
+    "ava:ci": "unset DEBUG; nyc ava --serial",
     "ava:watch": "unset DEBUG; ava -w",
     "test": "npm run lint && npm run ava:ci",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",

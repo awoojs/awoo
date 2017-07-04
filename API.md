@@ -19,6 +19,12 @@ This function needs to return `site`, wrapped in a promise. Thankfully,
 making it return a promise is as easy as using the `async` keyword
 (see the above example).
 
+### weh.integration(function (site), files)
+
+Basically the same as `weh()`, but sets `dry_run` to true and accepts an array
+of files to set as `config.files`, in order to override the read process.
+Used in integration tests for plugins.
+
 ### site.config(conf)
 
 Configures your site with either a specified config object or the default config.
@@ -45,6 +51,7 @@ This is an exhaustive list of all `weh` config options:
   is the directory you're in + `_site` (just like Jekyll!)
 - __dry_run__: Whether to skip writing completely. This is useful if you want to run
   automated tests without writing to disk. Default is `false`.
+- __files__: An array that will override `site.files` when `dry_run` is also set to true.
 - __exclude__: Files and directories to exclude when reading. The default is:
 
 ```

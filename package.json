@@ -8,9 +8,9 @@
   "license": "MIT",
   "scripts": {
     "lint": "standard | snazzy",
-    "ava": "ava",
-    "ava:ci": "nyc ava",
-    "ava:watch": "ava -w",
+    "ava": "unset DEBUG; ava",
+    "ava:ci": "unset DEBUG; nyc ava",
+    "ava:watch": "unset DEBUG; ava -w",
     "test": "npm run lint && npm run ava:ci",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "update-coc": "weallbehave -o . && git add CODE_OF_CONDUCT.md && git commit -m 'update code of conduct'"

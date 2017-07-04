@@ -7,7 +7,7 @@ test.after.always(t => {
   rimraf.sync('test/sample_dest')
 })
 
-test('runs on test data', async t => {
+test.serial('runs on test data', async t => {
   const plugin = () => {
     return files => {
       return files.map(file => Object.assign(file, {contents: 'test'}))
@@ -26,7 +26,7 @@ test('runs on test data', async t => {
   t.is(fs.readFileSync('test/sample_dest/test.md', 'utf-8'), 'test')
 })
 
-test('correctly runs in integration mode', async t => {
+test.serial('correctly runs in integration mode', async t => {
   const plugin = () => {
     return files => {
       return files.map(file => Object.assign(file, {contents: 'test2'}))

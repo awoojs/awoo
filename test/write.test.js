@@ -7,7 +7,7 @@ test.after.always(t => {
   rimraf.sync('test/sample_dest')
 })
 
-test('writes regular files', async t => {
+test.serial('writes regular files', async t => {
   const site = {
     _config: { destination: 'test/sample_dest' },
     files: [
@@ -22,7 +22,7 @@ test('writes regular files', async t => {
   t.true(fs.readFileSync('test/sample_dest/test.md', 'utf-8') === 'aaaa')
 })
 
-test('writes multiple files', async t => {
+test.serial('writes multiple files', async t => {
   const site = {
     _config: { destination: 'test/sample_dest' },
     files: [
@@ -42,7 +42,7 @@ test('writes multiple files', async t => {
   t.true(fs.readFileSync('test/sample_dest/test-two.txt', 'utf-8') === 'text')
 })
 
-test('writes binary files', async t => {
+test.serial('writes binary files', async t => {
   const site = {
     _config: { destination: 'test/sample_dest' },
     files: [

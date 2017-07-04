@@ -9,7 +9,7 @@ test.after.always(t => {
 
 test('writes regular files', async t => {
   const site = {
-    config: { destination: 'test/sample_dest' },
+    _config: { destination: 'test/sample_dest' },
     files: [
       {
         path: 'test.md',
@@ -24,7 +24,7 @@ test('writes regular files', async t => {
 
 test('writes multiple files', async t => {
   const site = {
-    config: { destination: 'test/sample_dest' },
+    _config: { destination: 'test/sample_dest' },
     files: [
       {
         path: 'test.md',
@@ -44,7 +44,7 @@ test('writes multiple files', async t => {
 
 test('writes binary files', async t => {
   const site = {
-    config: { destination: 'test/sample_dest' },
+    _config: { destination: 'test/sample_dest' },
     files: [
       {
         path: 'binary',

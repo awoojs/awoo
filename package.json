@@ -2,7 +2,7 @@
   "name": "@weh/weh",
   "version": "2.1.0",
   "description": "small site generator",
-  "main": "index.js",
+  "main": "lib/weh.js",
   "repository": "git@github.com:wehjs/weh.git",
   "author": "olivia <olivia@fastmail.com>",
   "license": "MIT",

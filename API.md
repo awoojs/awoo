@@ -78,47 +78,9 @@ const plugin = (opts = {}) => {
 It's best to set this to `{}` as a default to prevent unwanted errors, even
 if your plugin isn't taking any options.
 
-A plugin should return a function or an array of tuples (pairs of two). You
-should only return an array if you need to hook into multiple points of the
-build process. The default position in the build chain is after reading, but
-before writing to disk. This should be enough for most plugins.
-
-Hooking into multiple points would look like this:
-
-```js
-const plugin = () => {
-  return [
-    ['pre_read', files => {
-      // do something
-    }], ['post_write', files => {
-      // do something else
-    }]
-  ]
-}
-```
-
-While just hooking after reading looks like this:
-
-```js
-const plugin = () => {
-  return files => {
-    // do something
-  }
-}
-```
-
-There are four points where you can hook into:
-
-```
-pre_read
-post_read
-pre_write (the default)
-post_write
-```
-
-All of them receive the same parameter in their function, namely the `files`
-parameter. This is a very big array that contains all of the data collectible
-from the source fileset. It looks a little something like this:
+The function receives one paremeter, namely the `files` parameter. This is a
+very big array that contains all of the data collectible from the source fileset.
+It looks a little something like this:
 
 ```js
 [

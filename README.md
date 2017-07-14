@@ -161,22 +161,26 @@ add `weh` as a keyword in your `package.json`.
 
 [Here's a list of all weh plugins on GitHub](https://github.com/search?utf8=%E2%9C%93&q=topic%3Aweh&type=)
 
-## Development Setup
+## Development
 
-In the case that you want to work on `weh` itself, you're gonna need to clone
-this repository first:
+To work on this repository, clone it and install the npm dependencies:
 
 ```sh
-git clone https://github.com/wehjs/weh
+git clone https://github.com/YOURREPO
+cd YOURREPO
+npm install
 ```
 
-To install all of the development dependencies required for testing and such,
-you can just run `npm install`.
+There are a couple of npm scripts provided for convenience:
 
-There's a couple of convenience npm scripts that help you when working on `weh`.
-To run linters and tests, run `npm test`. To only run tests, run `npm run ava`.
-If you want to watch your test files and rerun when they change, run
-`npm run ava:watch`.
+- `npm test` - runs linters and ava in ci mode
+- `npm run lint` - runs linters
+- `npm run ava` - only runs ava once
+- `npm run ava:ci` - runs ava in ci mode (generates coverage data)
+- `npm run ava:watch` - runs ava in watch mode
+- `npm run coverage` - generates coverage data
+- `npm run update-coc` - pulls the latest `weallbehave` code of conduct
+- `npm run publish` - published npm package using `np`
 
 ## How does it compare?
 

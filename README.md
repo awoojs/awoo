@@ -218,6 +218,14 @@ generators (even though it isn't really that):
 If you have any ideas as to how to eliminate a dependency, you're more than
 welcome to pitch it here!
 
+## Maintainers
+
+- Olivia Hugger <[olivia@fastmail.com](mailto:olivia@fastmail.com)>
+
+## Code of Conduct
+
+This repository operates under the [`weallbehave`](https://github.com/wealljs/weallbehave) Code of Conduct. Its contents can be found in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
+
 ## License
 
 MIT (see LICENSE document)

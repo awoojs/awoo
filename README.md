@@ -180,7 +180,7 @@ There are a couple of npm scripts provided for convenience:
 - `npm run ava:watch` - runs ava in watch mode
 - `npm run coverage` - generates coverage data
 - `npm run update-coc` - pulls the latest `weallbehave` code of conduct
-- `npm run publish` - published npm package using `np`
+- `npm run deploy` - publishes npm package using `np`
 
 ## How does it compare?
 

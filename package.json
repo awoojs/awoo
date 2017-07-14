@@ -1,6 +1,6 @@
 {
   "name": "@weh/weh",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "small site generator",
   "main": "lib/weh.js",
   "repository": "git@github.com:wehjs/weh.git",

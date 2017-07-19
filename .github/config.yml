@@ -1,0 +1,53 @@
+repository:
+  name: weh
+  description: ':small_orange_diamond: declarative small site generator'
+  homepage: http://npm.im/@weh/weh/
+  private: false
+  has_issues: true
+  has_projects: false
+  has_wiki: false
+  has_downloads: true
+  default_branch: master
+  allow_squash_merge: true
+  allow_merge_commit: true
+  allow_rebase_merge: true
+
+labels:
+  - name: duplicate
+    color: ededed
+  - name: greenkeeper
+    color: ededed
+  - name: starter
+    color: ffc0cb
+  - name: 'priority: critical'
+    color: ee0701
+  - name: 'priority: high'
+    color: d93f0b
+  - name: 'priority: low'
+    color: 0e8a16
+  - name: 'priority: medium'
+    color: fbca04
+  - name: 'status: abandoned'
+    color: 000000
+  - name: 'status: available'
+    color: c2e0c6
+  - name: 'status: blocked'
+    color: ee0701
+  - name: 'status: in progress'
+    color: cccccc
+  - name: 'status: on hold'
+    color: e99695
+  - name: 'status: proposal'
+    color: d4c5f9
+  - name: 'status: review needed'
+    color: fbca04
+  - name: 'type: bug'
+    color: ee0701
+  - name: 'type: documentation'
+    color: 5319e7
+  - name: 'type: enhancement'
+    color: 1d76db
+  - name: 'type: maintenance'
+    color: fbca04
+  - name: 'type: question'
+    color: cc317c

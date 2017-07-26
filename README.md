@@ -43,8 +43,8 @@
   </a>
   
   <!-- greenkeeper -->
-  <a href="https://badges.greenkeeper.io/wehjs/weh.svg">
-    <img src="https://greenkeeper.io/"
+  <a href="https://greenkeeper.io">
+    <img src="https://badges.greenkeeper.io/wehjs/weh.svg"
       alt="greenkeeper badge" />  
   </a>
 </div>

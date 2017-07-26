@@ -41,6 +41,12 @@
     <img src="https://img.shields.io/badge/code%20style-standard-blue.svg?style=flat-square"
       alt="code style: standard" />
   </a>
+  
+  <!-- greenkeeper -->
+  <a href="https://badges.greenkeeper.io/wehjs/weh.svg">
+    <img src="https://greenkeeper.io/"
+      alt="greenkeeper badge" />  
+  </a>
 </div>
 <br />
 
@@ -57,8 +63,6 @@
 - [License](#license)
 
 ## Features
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/wehjs/weh.svg)](https://greenkeeper.io/)
 
 - __extremely simple__: the API exposes _one function_!
 - __easy to understand__: only ~200 SLOC!

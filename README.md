@@ -65,7 +65,7 @@
 ## Features
 
 - __extremely simple__: the API exposes _one function_!
-- __easy to understand__: only ~200 SLOC!
+- __easy to understand__: only ~180 SLOC!
 - __very modern__: works very well with async functions (node 7.6+)
 - __extendable as h*ck__: provides hooking mechanisms to serve your every need
 
@@ -172,8 +172,8 @@ add `weh` as a keyword in your `package.json`.
 To work on this repository, clone it and install the npm dependencies:
 
 ```sh
-git clone https://github.com/YOURREPO
-cd YOURREPO
+git clone https://github.com/wehjs/weh.git
+cd weh
 npm install
 ```
 

@@ -46,3 +46,11 @@ test('correctly runs in integration mode', async t => {
 
   t.is(res.files[0].contents, 'test2')
 })
+
+test('generates a sample config if none is found', async t => {
+  const res = await weh.integration(site => {
+    site.config({})
+    return site
+  }, [])
+  t.is(res._config.source, process.cwd())
+})

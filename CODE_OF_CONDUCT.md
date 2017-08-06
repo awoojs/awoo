@@ -68,7 +68,7 @@ Once the maintainers get involved, they will follow a documented series of steps
 You may get in touch with the maintainer team through any of the following methods:
 
   * Through email:
-    * [penny@penny.lgbt](mailto:penny@penny.lgbt) (penny)
+    * [olivia@fastmail.com](mailto:olivia@fastmail.com) (Olivia Hugger)
 
 ### Further Enforcement
 

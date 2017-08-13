@@ -161,6 +161,8 @@ See [API.md](https://github.com/wehjs/weh/blob/master/API.md).
 
 ## Plugins
 
+Official plugins are kept at [wehjs/core](http://github.com/wehjs/core)!
+
 Since it's really easy to write `weh` plugins, anyone can make and publish one!
 If you make a plugin, you should add a GitHub topic `weh` and probably also
 add `weh` as a keyword in your `package.json`.

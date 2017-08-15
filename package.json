@@ -40,7 +40,7 @@
     "write-file-promise": "1.0.0"
   },
   "devDependencies": {
-    "ava": "0.21.0",
+    "ava": "0.22.0",
     "codecov": "2.3.0",
     "np": "2.16.0",
     "nyc": "11.1.0",

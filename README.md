@@ -88,10 +88,8 @@ const weh = require('@weh/weh')
 // this is this simplest plugin you can build!
 // conveniently, plugins are just normal functions
 const plugin = () => {
-  return files => {
-    // replace all file contents with the string
-    return files.map(file => Object.assign(file, {contents: 'hey, what\'s up'}))
-  }
+  // replace all file contents with the string
+  return files => files.map(file => {...file, contents: 'hey what\'s up'})
 }
 
 // enter our main function:
@@ -105,7 +103,10 @@ weh(async site => {
 })
 ```
 
-That's 8 lines of code!
+_(note: this example only works with Node.js 8.4+ because it uses object spreading.
+if you want to use Node.js 7+, you'd have to use `Object.assign` instead)_
+
+That's 7 lines of code!
 
 Let's save this as `example.js`. To run it, you need Node.js version 7.6 or
 higher. The latest stable version will work.

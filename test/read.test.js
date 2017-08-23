@@ -1,5 +1,4 @@
 const test = require('ava')
-const path = require('path')
 const read = require('../lib/read')
 
 test('reads files correctly', async t => {
@@ -9,7 +8,6 @@ test('reads files correctly', async t => {
   }
 
   const res = await read(config)
-  const expectedPath = path.join(__dirname, 'sample/test.md')
 
   const file = res.find(f => f.path === 'test.md')
   t.true(file.contents.trim() === 'Hello!')

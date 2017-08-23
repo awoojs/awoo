@@ -9,7 +9,6 @@ test.after.always(t => {
   rimraf.sync('test/sample_dest')
 })
 
-
 test('runs on test data', async t => {
   const plugin = () => {
     return files => {

@@ -12,7 +12,6 @@ test('reads files correctly', async t => {
   const expectedPath = path.join(__dirname, 'sample/test.md')
 
   const file = res.find(f => f.path === 'test.md')
-  t.true(file.absolutePath === expectedPath)
   t.true(file.contents.trim() === 'Hello!')
 })
 

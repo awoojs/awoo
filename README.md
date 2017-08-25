@@ -90,7 +90,10 @@ const weh = require('@weh/weh')
 // conveniently, plugins are just normal functions
 const plugin = () => {
   // replace all file contents with the string
-  return files => files.map(file => {...file, contents: 'hey what\'s up'})
+  return files => files.map(file => {
+    file.contents = `hey, what's up`
+    return file
+  })
 }
 
 // enter our main function:
@@ -106,8 +109,6 @@ weh(async site => {
 
 _(note: this example only works with Node.js 8.4+ because it uses object spreading.
 if you want to use Node.js 7+, you'd have to use `Object.assign` instead)_
-
-That's 7 lines of code!
 
 Let's save this as `example.js`. To run it, you need Node.js version 7.6 or
 higher. The latest stable version will work.
@@ -141,7 +142,7 @@ DEBUG=weh* node my_script # full logging!
 It's fairly simple! What `weh` does can be split up into two things:
 
 - First, it reads a directory and saves all of the information about each file
-  into a gigantic object. That object can be manipulated by _plugins_, which
+  into a gigantic array. That object can be manipulated by _plugins_, which
   makes `weh` actually do things.
 - After most plugins are run, `weh` writes the files as they are described
   in the gigantic object to disk.
@@ -218,11 +219,9 @@ generators (even though it isn't really that):
 - [`deepmerge`](http://npm.im/deepmerge) - used to handle configuration management
 - [`walk`](http://npm.im/walk) - walks through directories to read them
 - [`trough`](http://npm.im/trough) - handles middleware chains
-- [`write-file-promise`](http://npm.im/write-file-promise) and
-  [`fs-readfile-promise`](http://npm.im/fs-readfile-promise) - promise-based
-  versions of the standard `fs` methods
 - [`debug`](http://npm.im/debug) - used for logging
-- [`excluded`](http://npm.im/excluded) - handles path exclusion logic
+- [`to-vfile`](http://npm.im/to-vfile) - converts to `vfile`, the virtual file format used by `weh`
+- [`mkdirp`](http://npm.im/mkdirp) - creates directories when writing to disk
 - [`is-text-path`](http://npm.im/is-text-path) - provides logic to correctly read binary files
 
 If you have any ideas as to how to eliminate a dependency, you're more than

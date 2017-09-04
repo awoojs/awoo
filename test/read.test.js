@@ -23,3 +23,10 @@ test('throws on nonexistent path', async t => {
     t.is(err[0].code, 'ENOENT')
   }
 })
+
+test('excludes files', async t => {
+  const res = await read('test/sample', ['subdir/'])
+
+  const basenames = res.map(f => f.basename)
+  t.false(basenames.includes('another.md'))
+})

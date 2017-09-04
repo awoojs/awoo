@@ -49,7 +49,8 @@ This is an exhaustive list of all `weh` config options:
   is the directory you're running `weh` from.
 - __destination__: The directory `weh` will place built files into. The default
   is the directory you're in + `_site` (just like Jekyll!)
-- __dry_run__: Whether to skip writing completely. This is useful if you want to run
+- __no_read__: Whether to skip reading. This should be coupled with using `config.files`.
+- __no_write__: Whether to skip writing completely. This is useful if you want to run
   automated tests without writing to disk. Default is `false`.
 - __files__: An array that will override `site.files` when `dry_run` is also set to true.
 - __exclude__: Files and directories to exclude when reading. The default is:
@@ -78,34 +79,20 @@ const plugin = (opts = {}) => {
 It's best to set this to `{}` as a default to prevent unwanted errors, even
 if your plugin isn't taking any options.
 
-The function receives one paremeter, namely the `files` parameter. This is a
-very big array that contains all of the data collectible from the source fileset.
-It looks a little something like this:
+The function receives one parameter, namely the `files` parameter. This is a big
+array that contains all of the data collectible from the source fileset. The files
+are stores as [`vfile`](vfile)s, which is a virtual file format used to easily
+serialize and deserialize files to and from the disk, and also through middleware.
 
-```js
-[
-  {
-    path: 'file.md',
-    absolutePath: '/Users/username/project/file.md',
-    contents: 'hello! this is content',
-    stats: [Object]
-  },
-  {
-    path: 'directory/cool.md',
-    absolutePath: '/Users/username/project/directory/cool.md',
-    contents: 'this is a cooler file',
-    stats: [Object]
-  },
-  {
-    path: 'directory/image.png',
-    absolutePath: '/Users/username/project/directory/image.png',
-    contents: [Buffer],
-    stats: [Object]
-  }
-]
-```
+Thankfully, `vfiles`s are just normal objects (with a bit of sugar on top), which
+means you can easily modify every aspect of the file. A couple of important attributes
+that every `vfile` has:
 
-(`stats` is an instance of [`fs.Stats`][fs-stats])
+- `contents`
+- `path` (this is a path relative to the source directory, e.g. `test.md`)
+- `extname` (the name of the file extension)
+- `dirname` (the name of the parent directory)
+- `data` (this is where you store custom data related to the file)
 
 If `weh` stumbles upon a binary file, it is kept in a buffer structure, because
 converting it to a string would effectively break the file. You can filter
@@ -122,11 +109,14 @@ So, to recap, your plugin might look a little like this:
 
 ```js
 const plugin = opts => {
-  return files => files.map(file => file.contents = opts)
+  return files => files.map(file => {
+    file.contents = opts | 'test'
+    return file
+  })
 }
 
 // ...omit weh initialization
-site.use(plugin, 'haha i\'ve replaced your file!')
+site.use(plugin, `haha i\'ve replaced your file!`)
 // ...omit other weh stuff
 ```
 
@@ -137,3 +127,4 @@ discoverable.
 [default config]: #default-configuration
 [plugin structure]: #plugin-structure
 [fs-stats]: https://nodejs.org/dist/latest-v6.x/docs/api/fs.html#fs_class_fs_stats
+[vfile]: https://github.com/vfile/vfile

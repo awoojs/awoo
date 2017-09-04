@@ -31,13 +31,11 @@
   "dependencies": {
     "debug": "3.0.1",
     "deepmerge": "1.5.1",
-    "excluded": "1.0.2",
-    "fs-readfile-promise": "3.0.0",
     "is-text-path": "1.0.1",
+    "mkdirp": "0.5.1",
+    "to-vfile": "2.1.2",
     "trough": "1.0.1",
-    "walk": "2.3.9",
-    "weallbehave": "1.2.0",
-    "write-file-promise": "1.0.0"
+    "walk": "2.3.9"
   },
   "devDependencies": {
     "ava": "0.22.0",
@@ -46,6 +44,8 @@
     "nyc": "11.1.0",
     "rimraf": "2.6.1",
     "snazzy": "7.0.0",
-    "standard": "10.0.3"
+    "standard": "10.0.3",
+    "vfile": "2.2.0",
+    "weallbehave": "1.2.0"
   }
 }

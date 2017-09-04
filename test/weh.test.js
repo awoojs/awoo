@@ -1,29 +1,28 @@
 const test = require('ava')
-const rimraf = require('rimraf')
-const fs = require('fs')
+const vfile = require('vfile')
 const weh = require('../lib/weh')
 
-test.after.always(t => {
-  rimraf.sync('test/sample_dest')
-})
-
-test('runs on test data', async t => {
+test('works correctly', async t => {
   const plugin = () => {
-    return files => {
-      return files.map(file => Object.assign(file, {contents: 'test'}))
-    }
+    return files => files.map(file => {
+      file.contents = 'haha test'
+      return file
+    })
   }
 
-  await weh(site => {
+  const res = await weh(site => {
     site.config({
       source: 'test/sample',
-      destination: 'test/sample_dest'
+      no_write: true
     })
+
     site.use(plugin)
     return site
   })
 
-  t.is(fs.readFileSync('test/sample_dest/test.md', 'utf-8'), 'test')
+  t.log(res.files)
+  t.log(res.files.map(f => f.basename))
+  t.is(res.files.find(f => f.basename === 'test.md').contents, 'haha test')
 })
 
 test('correctly runs in integration mode', async t => {
@@ -34,9 +33,7 @@ test('correctly runs in integration mode', async t => {
   }
 
   const files = [
-    {
-      contents: 'aaa'
-    }
+    vfile({ path: 'a', contents: 'aaa' })
   ]
 
   const res = await weh.integration(site => {
@@ -45,12 +42,4 @@ test('correctly runs in integration mode', async t => {
   }, files)
 
   t.is(res.files[0].contents, 'test2')
-})
-
-test('generates a sample config if none is found', async t => {
-  const res = await weh.integration(site => {
-    site.config({})
-    return site
-  }, [])
-  t.is(res._config.source, process.cwd())
 })

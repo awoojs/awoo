@@ -110,7 +110,7 @@ So, to recap, your plugin might look a little like this:
 ```js
 const plugin = opts => {
   return files => files.map(file => {
-    file.contents = opts | 'test'
+    file.contents = opts || 'test'
     return file
   })
 }

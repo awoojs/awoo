@@ -107,9 +107,6 @@ weh(async site => {
 })
 ```
 
-_(note: this example only works with Node.js 8.4+ because it uses object spreading.
-if you want to use Node.js 7+, you'd have to use `Object.assign` instead)_
-
 Let's save this as `example.js`. To run it, you need Node.js version 7.6 or
 higher. The latest stable version will work.
 
@@ -145,7 +142,7 @@ It's fairly simple! What `weh` does can be split up into two things:
   into a gigantic array. That object can be manipulated by _plugins_, which
   makes `weh` actually do things.
 - After most plugins are run, `weh` writes the files as they are described
-  in the gigantic object to disk.
+  in the gigantic array to disk.
 
 It's that simple! Static site generators aren't rocket science or whatever.
 If you got confused by looking at the Jekyll source code once, that's because

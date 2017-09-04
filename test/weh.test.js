@@ -23,6 +23,16 @@ test('works correctly', async t => {
   t.is(res.files.find(f => f.basename === 'test.md').contents, 'haha test')
 })
 
+test('throws error at read', async t => {
+  await t.throws(weh(site => {
+    site.config({
+      source: 'test/fakepath',
+      no_write: true
+    })
+    return site
+  }))
+})
+
 test('correctly runs in integration mode', async t => {
   const plugin = () => {
     return files => {

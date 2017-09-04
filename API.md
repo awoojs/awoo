@@ -49,7 +49,8 @@ This is an exhaustive list of all `weh` config options:
   is the directory you're running `weh` from.
 - __destination__: The directory `weh` will place built files into. The default
   is the directory you're in + `_site` (just like Jekyll!)
-- __dry_run__: Whether to skip writing completely. This is useful if you want to run
+- __no_read__: Whether to skip reading. This should be coupled with using `config.files`.
+- __no_write__: Whether to skip writing completely. This is useful if you want to run
   automated tests without writing to disk. Default is `false`.
 - __files__: An array that will override `site.files` when `dry_run` is also set to true.
 - __exclude__: Files and directories to exclude when reading. The default is:

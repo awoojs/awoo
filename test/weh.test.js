@@ -20,8 +20,6 @@ test('works correctly', async t => {
     return site
   })
 
-  t.log(res.files)
-  t.log(res.files.map(f => f.basename))
   t.is(res.files.find(f => f.basename === 'test.md').contents, 'haha test')
 })
 

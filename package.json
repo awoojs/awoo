@@ -5,7 +5,7 @@
   "main": "lib/weh.js",
   "repository": "git@github.com:wehjs/weh.git",
   "author": "olivia <olivia@fastmail.com>",
-  "license": "MIT",
+  "license": "AGPL-3.0+",
   "scripts": {
     "lint": "standard | snazzy",
     "ava": "unset DEBUG; ava --serial",

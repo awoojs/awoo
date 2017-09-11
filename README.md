@@ -234,4 +234,4 @@ This repository operates under the [`weallbehave`](https://github.com/wealljs/we
 
 ## License
 
-MIT (see LICENSE document)
+GNU AGPLv3 (see LICENSE document)

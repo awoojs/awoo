@@ -157,7 +157,7 @@ the stuff you need!
 
 ## API Documentation
 
-See [API.md](https://github.com/wehjs/weh/blob/master/API.md).
+The [docs](https://weh.js.org/docs) are published on our website.
 
 ## Plugins
 

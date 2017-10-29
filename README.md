@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="logo.png" width="150" alt="weh text logo" />
+  <img src="logo.gif" width="150" alt="weh logo" />
 </h1>
 
 <div align="center">

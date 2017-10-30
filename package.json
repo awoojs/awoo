@@ -40,7 +40,7 @@
   "devDependencies": {
     "ava": "0.23.0",
     "codecov": "3.0.0",
-    "np": "2.16.0",
+    "np": "2.16.1",
     "nyc": "11.2.1",
     "rimraf": "2.6.2",
     "snazzy": "7.0.0",

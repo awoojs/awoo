@@ -45,7 +45,7 @@
     "rimraf": "2.6.2",
     "snazzy": "7.0.0",
     "standard": "10.0.3",
-    "vfile": "2.2.0",
+    "vfile": "2.3.0",
     "weallbehave": "1.2.0"
   }
 }

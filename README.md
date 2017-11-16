@@ -67,7 +67,6 @@
 - __extremely simple__: the API exposes _one function_!
 - __easy to understand__: only ~180 SLOC!
 - __very modern__: works very well with async functions (node 7.6+)
-- __extendable as h*ck__: provides hooking mechanisms to serve your every need
 - __fast as lightning__: because it's so simple, it takes almost no time to build a site!
 
 ## Installation
@@ -157,7 +156,7 @@ the stuff you need!
 
 ## API Documentation
 
-The [docs](https://weh.js.org/docs) are published on our website.
+The [docs](https://awoo.js.org/docs) are published on our website.
 
 ## Plugins
 
@@ -200,10 +199,8 @@ generators (even though it isn't really that):
   help you build your static site extremely quickly. It's also massively
   geared for security, since it runs on GitHub's Pages platform. Stuff like
   custom plugins isn't even available there (not like that's a bad thing!).
-- __ghost__: Ghost is just straight up a blogging platform. I don't even know
-  why it's on AlternativeTo.
 - __hugo__: Hugo, a bit like Jekyll, has predefined concepts like "pages" and
-  "tags". It's also way more stable and faster than `awoo`. Why am I still writing this?
+  "tags".
 - __metalsmith__: Metalsmith is probably the thing that's most like `awoo`, and
   as a matter of fact, its main inspiration. It's also plugin-based, and works
   with roughly the same concepts. The major difference is that `awoo` is more
@@ -222,7 +219,7 @@ generators (even though it isn't really that):
 - [`is-text-path`](http://npm.im/is-text-path) - provides logic to correctly read binary files
 
 If you have any ideas as to how to eliminate a dependency, you're more than
-welcome to pitch it here!
+welcome to pitch it in a new issue!
 
 ## Maintainers
 

@@ -1,6 +1,6 @@
 {
   "name": "awoo",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "small site generator",
   "main": "lib/awoo.js",
   "repository": "git@github.com:awoojs/awoo.git",

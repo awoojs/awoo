@@ -1,7 +1,7 @@
 repository:
-  name: weh
+  name: awoo
   description: ':small_orange_diamond: declarative small site generator'
-  homepage: http://npm.im/@weh/weh/
+  homepage: http://npm.im/awoo
   private: false
   has_issues: true
   has_projects: false

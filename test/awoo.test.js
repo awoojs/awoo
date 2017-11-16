@@ -1,6 +1,6 @@
 const test = require('ava')
 const vfile = require('vfile')
-const weh = require('../lib/weh')
+const awoo = require('../lib/awoo')
 
 test('works correctly', async t => {
   const plugin = () => {
@@ -10,7 +10,7 @@ test('works correctly', async t => {
     })
   }
 
-  const res = await weh(site => {
+  const res = await awoo(site => {
     site.config({
       source: 'test/sample',
       no_write: true
@@ -24,7 +24,7 @@ test('works correctly', async t => {
 })
 
 test('throws error at read', async t => {
-  await t.throws(weh(site => {
+  await t.throws(awoo(site => {
     site.config({
       source: 'test/fakepath',
       no_write: true
@@ -44,7 +44,7 @@ test('correctly runs in integration mode', async t => {
     vfile({ path: 'a', contents: 'aaa' })
   ]
 
-  const res = await weh.integration(site => {
+  const res = await awoo.integration(site => {
     site.use(plugin)
     return site
   }, files)

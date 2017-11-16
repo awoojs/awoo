@@ -1,9 +1,9 @@
 {
-  "name": "@weh/weh",
+  "name": "awoo",
   "version": "4.0.0",
   "description": "small site generator",
-  "main": "lib/weh.js",
-  "repository": "git@github.com:wehjs/weh.git",
+  "main": "lib/awoo.js",
+  "repository": "git@github.com:awoojs/awoo.git",
   "author": "olivia <olivia@fastmail.com>",
   "license": "AGPL-3.0+",
   "scripts": {

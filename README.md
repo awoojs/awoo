@@ -85,7 +85,7 @@ directory to "hey, what's up":
 ```js
 const awoo = require('awoo')
 
-// this is this simplest plugin you can build!
+// this is the simplest plugin you can build!
 // conveniently, plugins are just normal functions
 const plugin = () => {
   // replace all file contents with the string

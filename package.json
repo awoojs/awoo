@@ -43,7 +43,7 @@
     "np": "2.20.1",
     "nyc": "11.4.1",
     "rimraf": "2.6.2",
-    "snazzy": "7.1.0",
+    "snazzy": "7.1.1",
     "standard": "11.0.0",
     "vfile": "2.3.0",
     "weallbehave": "1.2.0"

@@ -44,7 +44,7 @@
     "nyc": "11.6.0",
     "rimraf": "2.6.2",
     "snazzy": "7.1.1",
-    "standard": "11.0.0",
+    "standard": "11.0.1",
     "vfile": "2.3.0",
     "weallbehave": "1.2.0"
   }

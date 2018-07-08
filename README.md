@@ -18,12 +18,6 @@
       alt="API stability" />
   </a>
 
-  <!-- code coverage -->
-  <a href="https://codecov.io/gh/awoojs/awoo">
-    <img src="https://img.shields.io/codecov/c/github/awoojs/awoo.svg?style=flat-square"
-      alt="code coverage" />
-  </a>
-
   <!-- travis ci -->
   <a href="https://travis-ci.org/awoojs/awoo">
     <img src="https://img.shields.io/travis/awoojs/awoo.svg?style=flat-square"
@@ -36,16 +30,10 @@
       alt="npm version" />
   </a>
 
-  <!-- code style -->
-  <a href="https://github.com/feross/standard">
-    <img src="https://img.shields.io/badge/code%20style-standard-blue.svg?style=flat-square"
-      alt="code style: standard" />
-  </a>
-  
-  <!-- greenkeeper -->
-  <a href="https://greenkeeper.io">
-    <img src="https://badges.greenkeeper.io/awoojs/awoo.svg"
-      alt="greenkeeper badge" />  
+  <!-- package size -->
+  <a href="https://packagephobia.now.sh/result?p=awoo">
+    <img src="https://packagephobia.now.sh/badge?p=awoo"
+      alt="package size" />
   </a>
 </div>
 <br />

@@ -35,7 +35,7 @@
     "mkdirp": "0.5.1",
     "to-vfile": "5.0.0",
     "trough": "1.0.2",
-    "walk": "2.3.12"
+    "walk": "2.3.14"
   },
   "devDependencies": {
     "ava": "0.25.0",

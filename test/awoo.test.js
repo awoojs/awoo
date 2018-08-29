@@ -36,7 +36,7 @@ test('throws error at read', async t => {
 test('correctly runs in integration mode', async t => {
   const plugin = () => {
     return files => {
-      return files.map(file => Object.assign(file, {contents: 'test2'}))
+      return files.map(file => Object.assign(file, { contents: 'test2' }))
     }
   }
 

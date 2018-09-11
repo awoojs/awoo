@@ -27,7 +27,7 @@
     ]
   },
   "dependencies": {
-    "debug": "3.2.2",
+    "debug": "4.0.0",
     "deepmerge": "2.1.1",
     "is-text-path": "1.0.1",
     "mkdirp": "0.5.1",

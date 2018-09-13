@@ -1,3 +1,7 @@
+<h3 align="center">
+  <b>Currently not maintained! If you would like to resume maintenance, please open an issue!</b>
+</h3>
+
 <h1 align="center">
   <img src="logo.gif" width="150" alt="awoo logo" />
 </h1>

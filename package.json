@@ -36,7 +36,7 @@
     "walk": "2.3.14"
   },
   "devDependencies": {
-    "ava": "0.25.0",
+    "ava": "1.4.0",
     "np": "3.0.2",
     "rimraf": "2.6.2",
     "snazzy": "8.0.0",

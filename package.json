@@ -40,7 +40,7 @@
     "np": "3.0.2",
     "rimraf": "2.6.2",
     "snazzy": "8.0.0",
-    "standard": "12.0.1",
+    "standard": "14.0.0",
     "vfile": "2.3.0",
     "weallbehave": "1.2.0"
   }
